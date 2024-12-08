@@ -1,0 +1,694 @@
+/* 메인 콘텐츠 설정 */
+
+.main-content,
+.main-content2,
+.main-content3,
+.main-content4 {
+  margin: 0; /* 각 섹션의 상하 간격을 제거 */
+  padding: 0; /* 패딩도 제거하여 공백 줄임 */
+}
+.main-content {
+  width: 100%;
+  height: 700vh; /* 스크롤을 위한 충분한 높이로 설정 */
+  position: relative;
+  overflow: hidden;
+}
+
+/* 타이틀 컨테이너 설정 */
+.title-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 첫 번째 타이틀 스타일 (title1) */
+.title1 {
+  display: inline-block;
+  color: #fff;
+  font-weight: bold;
+  font-size: 27rem;
+  position: absolute;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+/* 두 번째, 세 번째, 네 번째 타이틀 스타일링 (title2, title3, title4) */
+.title2,
+.title3,
+.title4 {
+  display: inline-block;
+  color: #fff;
+  font-weight: bold;
+  font-size: 7rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  opacity: 0;
+  white-space: nowrap;
+}
+
+/* 메인 콘텐츠2 설정 */
+.main-content2 {
+  width: 100%;
+  height: 115vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  opacity: 1;
+  z-index: 15;
+}
+
+/* main-content2 안의 텍스트 스타일 */
+.main-content2 .logo1 {
+  font-size: 5rem;
+  color: #fff;
+}
+
+/* main-content3 스타일 */
+.main-content3 {
+  width: 100%;
+  height: 100vh; /* 화면 전체 높이 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-content3 .title5 {
+  font-size: 7rem; /* 기본 글씨 크기 */
+  color: #fff; /* 글씨 색은 흰색 */
+  opacity: 0; /* 애니메이션 시작 전까지 투명하게 설정 */
+}
+
+/* 메인 콘텐츠4 설정 */
+.main-content4 {
+  width: 100%;
+  height: 400vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  opacity: 1; /* 애니메이션 전까지 투명하게 */
+}
+
+.main-content4 .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.main-content4 .title6 {
+  font-size: 2rem;
+  color: #fff;
+  opacity: 0; /* 애니메이션 시작 전까지 투명하게 설정 */
+  margin-bottom: 40px;
+}
+.main-content4 .title7 {
+  font-size: 2rem;
+  color: #fff;
+  opacity: 0; /* 애니메이션 시작 전까지 투명하게 설정 */
+  margin-bottom: 40px;
+}
+
+.main-content4 .arrow-icon {
+  position: absolute;
+  right: 20px; /* 오른쪽 끝에서 20px 떨어진 위치 */
+  top: 50%; /* 수직 중앙 정렬 */
+  transform: translateY(-50%); /* 정확한 중앙 배치를 위해 translate 사용 */
+  font-size: 1.5rem;
+  color: #fff; /* 화살표 색상 흰색 */
+}
+
+.arrow-down {
+  position: fixed;
+  bottom: 4rem; /* 화면 하단에서 20px 위 */
+  left: 50.5%; /* 화면의 가로 중앙에 위치 */
+  transform: translateX(-50%); /* 정확한 가로 중앙 정렬 */
+  z-index: 100; /* 다른 요소 위에 위치 */
+}
+/* 하단 고정 버튼 스타일 */
+.arrow-down span {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+  transform: rotate(45deg);
+  margin: -10px;
+  animation: animate-arrows 2s infinite;
+}
+@keyframes animate-arrows {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-1.5em, -1.5em);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(1.5em, 1.5em);
+  }
+}
+.arrow-down span:nth-child(1) {
+  animation-delay: -0.2s;
+}
+.arrow-down span:nth-child(2) {
+  animation-delay: -0.4s;
+}
+.arrow-down span:nth-child(3) {
+  animation-delay: -0.6s;
+}
+
+/* 배경 비디오 스타일 */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.video-background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 어두운 반투명 오버레이 */
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* 검은색 투명도 50% */
+  z-index: -1; /* 콘텐츠보다 뒤에 위치 */
+}
+/* 버튼 */
+.main-body {
+  color: #ccc;
+  background: transparent;
+  font-family: sans-serif;
+}
+.layers span {
+  font-size: 4rem;
+}
+.hero-container h2 {
+  margin: 0.5rem;
+}
+
+.hero {
+  font-size: clamp(40px, 10vw, 100px);
+  line-height: 1;
+  display: inline-block;
+  color: #fff;
+  z-index: 2;
+  letter-spacing: 10px;
+
+  /* Bright things in dark environments usually cast that light, giving off a glow */
+  filter: drop-shadow(0 1px 3px);
+}
+
+.demo {
+  height: 100px;
+  background: #fff;
+}
+
+.layers {
+  position: relative;
+}
+
+.layers::before,
+.layers::after {
+  content: attr(data-text);
+  position: absolute;
+  width: 110%;
+  z-index: -1;
+}
+
+.layers::before {
+  top: 10px;
+  left: 15px;
+  color: #e0287d;
+}
+
+.layers::after {
+  top: 5px;
+  left: -10px;
+  color: #1bc7fb;
+}
+
+.single-path {
+  clip-path: polygon(
+    0% 12%,
+    53% 12%,
+    53% 26%,
+    25% 26%,
+    25% 86%,
+    31% 86%,
+    31% 0%,
+    53% 0%,
+    53% 84%,
+    92% 84%,
+    92% 82%,
+    70% 82%,
+    70% 29%,
+    78% 29%,
+    78% 65%,
+    69% 65%,
+    69% 66%,
+    77% 66%,
+    77% 45%,
+    85% 45%,
+    85% 26%,
+    97% 26%,
+    97% 28%,
+    84% 28%,
+    84% 34%,
+    54% 34%,
+    54% 89%,
+    30% 89%,
+    30% 58%,
+    83% 58%,
+    83% 5%,
+    68% 5%,
+    68% 36%,
+    62% 36%,
+    62% 1%,
+    12% 1%,
+    12% 34%,
+    60% 34%,
+    60% 57%,
+    98% 57%,
+    98% 83%,
+    1% 83%,
+    1% 53%,
+    91% 53%,
+    91% 84%,
+    8% 84%,
+    8% 83%,
+    4% 83%
+  );
+}
+
+.paths {
+  animation: paths 5s step-end infinite;
+}
+
+@keyframes paths {
+  0% {
+    clip-path: polygon(
+      0% 43%,
+      83% 43%,
+      83% 22%,
+      23% 22%,
+      23% 24%,
+      91% 24%,
+      91% 26%,
+      18% 26%,
+      18% 83%,
+      29% 83%,
+      29% 17%,
+      41% 17%,
+      41% 39%,
+      18% 39%,
+      18% 82%,
+      54% 82%,
+      54% 88%,
+      19% 88%,
+      19% 4%,
+      39% 4%,
+      39% 14%,
+      76% 14%,
+      76% 52%,
+      23% 52%,
+      23% 35%,
+      19% 35%,
+      19% 8%,
+      36% 8%,
+      36% 31%,
+      73% 31%,
+      73% 16%,
+      1% 16%,
+      1% 56%,
+      50% 56%,
+      50% 8%
+    );
+  }
+
+  5% {
+    clip-path: polygon(
+      0% 29%,
+      44% 29%,
+      44% 83%,
+      94% 83%,
+      94% 56%,
+      11% 56%,
+      11% 64%,
+      94% 64%,
+      94% 70%,
+      88% 70%,
+      88% 32%,
+      18% 32%,
+      18% 96%,
+      10% 96%,
+      10% 62%,
+      9% 62%,
+      9% 84%,
+      68% 84%,
+      68% 50%,
+      52% 50%,
+      52% 55%,
+      35% 55%,
+      35% 87%,
+      25% 87%,
+      25% 39%,
+      15% 39%,
+      15% 88%,
+      52% 88%
+    );
+  }
+
+  30% {
+    clip-path: polygon(
+      0% 53%,
+      93% 53%,
+      93% 62%,
+      68% 62%,
+      68% 37%,
+      97% 37%,
+      97% 89%,
+      13% 89%,
+      13% 45%,
+      51% 45%,
+      51% 88%,
+      17% 88%,
+      17% 54%,
+      81% 54%,
+      81% 75%,
+      79% 75%,
+      79% 76%,
+      38% 76%,
+      38% 28%,
+      61% 28%,
+      61% 12%,
+      55% 12%,
+      55% 62%,
+      68% 62%,
+      68% 51%,
+      0% 51%,
+      0% 92%,
+      63% 92%,
+      63% 4%,
+      65% 4%
+    );
+  }
+
+  45% {
+    clip-path: polygon(
+      0% 33%,
+      2% 33%,
+      2% 69%,
+      58% 69%,
+      58% 94%,
+      55% 94%,
+      55% 25%,
+      33% 25%,
+      33% 85%,
+      16% 85%,
+      16% 19%,
+      5% 19%,
+      5% 20%,
+      79% 20%,
+      79% 96%,
+      93% 96%,
+      93% 50%,
+      5% 50%,
+      5% 74%,
+      55% 74%,
+      55% 57%,
+      96% 57%,
+      96% 59%,
+      87% 59%,
+      87% 65%,
+      82% 65%,
+      82% 39%,
+      63% 39%,
+      63% 92%,
+      4% 92%,
+      4% 36%,
+      24% 36%,
+      24% 70%,
+      1% 70%,
+      1% 43%,
+      15% 43%,
+      15% 28%,
+      23% 28%,
+      23% 71%,
+      90% 71%,
+      90% 86%,
+      97% 86%,
+      97% 1%,
+      60% 1%,
+      60% 67%,
+      71% 67%,
+      71% 91%,
+      17% 91%,
+      17% 14%,
+      39% 14%,
+      39% 30%,
+      58% 30%,
+      58% 11%,
+      52% 11%,
+      52% 83%,
+      68% 83%
+    );
+  }
+
+  76% {
+    clip-path: polygon(
+      0% 26%,
+      15% 26%,
+      15% 73%,
+      72% 73%,
+      72% 70%,
+      77% 70%,
+      77% 75%,
+      8% 75%,
+      8% 42%,
+      4% 42%,
+      4% 61%,
+      17% 61%,
+      17% 12%,
+      26% 12%,
+      26% 63%,
+      73% 63%,
+      73% 43%,
+      90% 43%,
+      90% 67%,
+      50% 67%,
+      50% 41%,
+      42% 41%,
+      42% 46%,
+      50% 46%,
+      50% 84%,
+      96% 84%,
+      96% 78%,
+      49% 78%,
+      49% 25%,
+      63% 25%,
+      63% 14%
+    );
+  }
+
+  90% {
+    clip-path: polygon(
+      0% 41%,
+      13% 41%,
+      13% 6%,
+      87% 6%,
+      87% 93%,
+      10% 93%,
+      10% 13%,
+      89% 13%,
+      89% 6%,
+      3% 6%,
+      3% 8%,
+      16% 8%,
+      16% 79%,
+      0% 79%,
+      0% 99%,
+      92% 99%,
+      92% 90%,
+      5% 90%,
+      5% 60%,
+      0% 60%,
+      0% 48%,
+      89% 48%,
+      89% 13%,
+      80% 13%,
+      80% 43%,
+      95% 43%,
+      95% 19%,
+      80% 19%,
+      80% 85%,
+      38% 85%,
+      38% 62%
+    );
+  }
+
+  1%,
+  7%,
+  33%,
+  47%,
+  78%,
+  93% {
+    clip-path: none;
+  }
+}
+
+.movement {
+  /* Normally this position would be absolute & on the layers, set to relative here so we can see it on the div */
+  position: relative;
+  animation: movement 8s step-end infinite;
+}
+
+@keyframes movement {
+  0% {
+    top: 0px;
+    left: -20px;
+  }
+
+  15% {
+    top: 10px;
+    left: 10px;
+  }
+
+  60% {
+    top: 5px;
+    left: -10px;
+  }
+
+  75% {
+    top: -5px;
+    left: 20px;
+  }
+
+  100% {
+    top: 10px;
+    left: 5px;
+  }
+}
+
+.opacity {
+  animation: opacity 5s step-end infinite;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0.1;
+  }
+
+  5% {
+    opacity: 0.7;
+  }
+
+  30% {
+    opacity: 0.4;
+  }
+
+  45% {
+    opacity: 0.6;
+  }
+
+  76% {
+    opacity: 0.4;
+  }
+
+  90% {
+    opacity: 0.8;
+  }
+
+  1%,
+  7%,
+  33%,
+  47%,
+  78%,
+  93% {
+    opacity: 0;
+  }
+}
+
+.font {
+  animation: font 7s step-end infinite;
+}
+
+@keyframes font {
+  0% {
+    font-weight: 100;
+    color: #e0287d;
+    filter: blur(3px);
+  }
+
+  20% {
+    font-weight: 500;
+    color: #fff;
+    filter: blur(0);
+  }
+
+  50% {
+    font-weight: 300;
+    color: #1bc7fb;
+    filter: blur(2px);
+  }
+
+  60% {
+    font-weight: 700;
+    color: #fff;
+    filter: blur(0);
+  }
+
+  90% {
+    font-weight: 500;
+    color: #e0287d;
+    filter: blur(6px);
+  }
+}
+
+.glitch span {
+  animation: paths 5s step-end infinite;
+}
+
+.glitch::before {
+  animation: paths 5s step-end infinite, opacity 5s step-end infinite,
+    font 8s step-end infinite, movement 10s step-end infinite;
+}
+
+.glitch::after {
+  animation: paths 5s step-end infinite, opacity 5s step-end infinite,
+    font 7s step-end infinite, movement 8s step-end infinite;
+}
+
+.hero-container {
+  position: relative;
+  text-align: center;
+}
+.button1 {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

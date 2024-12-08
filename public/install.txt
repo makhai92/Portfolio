@@ -1,0 +1,14 @@
+2024-11-02 23:03
+npm install react-router-dom
+npm install axios
+npm install recoil
+npm install gsap
+npm install swiper
+npm install react-chartjs-2 chart.js
+npm install react-icons
+
+2024-11-04 20:38
+npm install @mui/icons-material
+
+2024-11-05 16:04
+npm install react-typing-text-effect
