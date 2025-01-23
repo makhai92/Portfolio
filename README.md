@@ -60,7 +60,7 @@
 > [프로젝트 상세 설명](https://github.com/makhai92/SAS)
 <br />
 
-## 3. 📚Portfolio
+## 3. 📚 Portfolio
 
 > 포트폴리오 _(개인 포트폴리오 모음집)_
 >
