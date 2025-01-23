@@ -23,8 +23,8 @@
 > 다이어트&운동정보 공유 사이트 _(kh교육원 팀프로젝트)_
 >
 > - 개발기간 : 2024.07.31-08.14
-> - 핵심 역할 : 팀장, 여행추천 알고리즘 작성, React로 Front개발
-> - 핵심 역할 : 팀장, TSP 알고리즘을 활용한 여행추천 알고리즘 작성, React를 사용한 SPA 개발
+> - 핵심 역할 : 팀장, 프로젝트 전체 총괄
+> - 구현 기능 : 메인페이지 헤더/푸터/사이드, 이벤트게시판(출석체크,룰렛게시판), 뉴스레터게시판(게시글작성,삭제,수정,좋아요, 댓글-좋아요,수정,삭제,자료업로드, 이미지업로드)
 >
 >> Back-end
 >> - Language : java  
@@ -43,10 +43,10 @@
 > Spoon&Smiles _(kh교육원 파이널 팀프로젝트)_
 >
 > - 개발기간 : 2024.09.10 - 10.10
-> - 핵심 역할 : 팀장, Generative model 사용
-> - 핵심 역할 : 팀장, Generative model를 이용한 신발 스타일링 기능 구현
-> - Language : python3
-> - Skill : Django, Django-rest-framework
+> - 핵심 역할 : 프로젝트의 전체적인 틀과 형태 제작, 소비자와 점주들간의 예약구현
+> - 구현 기능 : 소비자,점주 메인페이지 제작, 점주 매장메인페이지(금일예약건 한눈에 볼수있도록), 리뷰관리, 매장 통계관리, 매장예약관리
+> - Language : java,HTML5,css,JavaScript
+> - Skill : Spring Tool Suite3, Maven, SQL, MyBatis, ApacheTomcat, VS Code
 >
 >> Back-end
 >> - Language : java  
@@ -54,8 +54,8 @@
 >>  
 >
 >> Front-end
->> - Language : javascript
->> - Skill : HTML5,CSS
+>> - Language : javascript, HTML5, CSS
+>> - Skill : React
 >>
 > [프로젝트 상세 설명](https://github.com/makhai92/SAS)
 <br />
@@ -65,10 +65,9 @@
 > 포트폴리오 _(개인 포트폴리오 모음집)_
 >
 > - 개발기간 : 2024.11.02 - ing
-> - 핵심 역할 : 
-> - 핵심 역할 :  
-> - Language : 
-> - Skill : 
+> - 구현 기능 : 영화 매트릭스를 표현한 포트폴리오, 각프로젝트를 한눈에 볼수있도록 react로 관리/제작 
+>> - Language : javascript, HTML5, CSS
+>> - Skill : React
 >
 > [프로젝트 상세 설명](https://github.com/makhai92/Portfolio/edit/main/README.md)
 <br />
@@ -78,10 +77,10 @@
 > 구구 _(반려동물 분양 사이트)_
 >
 > - 개발기간 : 2024.12.20 - ing
-> - 핵심 역할 : 
-> - 핵심 역할 : 
-> - Language :  
-> - Skill :
+> - 핵심 역할 : 전반적인 프론트와 UI&UX를 담당
+> - 구현 기능 : 메인페이지, 커뮤니티 게시판, 분양게시판
+> - Language : javascript, HTML5, CSS
+> - Skill : React
 >
 > [프로젝트 상세 설명](https://github.com/makhai92/testgoo)
 <br />
@@ -91,11 +90,19 @@
 > 노블 _(노션과 블로그를 합친 사이트)_
 >
 > - 개발기간 : 2024.01.23 - 02.15
-> - 핵심 역할 : 
-> - 핵심 역할 : 
-> - Language :  
-> - Skill :
+> - 구현 기능 : TODO LIST, 게시판(수정/삭제/좋아요/댓글-수정/삭제/좋아요,자료업로드,이미지업로드), 로그인
+> - Language : java,HTML5,css,JavaScript
+> - Skill : Spring Tool Suite3, Maven, SQL, MyBatis, ApacheTomcat, VS Code
 >
+>> Back-end
+>> - Language : java  
+>> - Skill : Spring Tool Suite3, Maven, SQL
+>>  
+>
+>> Front-end
+>> - Language : javascript, HTML5, CSS
+>> - Skill : React
+>>
 > [프로젝트 상세 설명](https://github.com/makhai92/testgoo)
 <br />
 
