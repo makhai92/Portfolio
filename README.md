@@ -86,6 +86,18 @@
 > [프로젝트 상세 설명](https://github.com/makhai92/testgoo)
 <br />
 
+## 5. clipboard
+
+> 구구 _(반려동물 분양 사이트)_
+>
+> - 개발기간 : 2022.05.18-25
+> - 핵심 역할 : 
+> - 핵심 역할 : 
+> - Language :  
+> - Skill :
+>
+> [프로젝트 상세 설명](https://github.com/makhai92/testgoo)
+<br />
 
 # 🎞 사진들
 
