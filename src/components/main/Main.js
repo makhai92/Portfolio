@@ -9,134 +9,59 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const Main = () => {
   useEffect(() => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".main-content",
-          start: "top top",
-          end: "90% top",
-          scrub: true,
-          pin: true,
-          pinSpacing: false,
-          toggleActions: "restart pause resume pause",
-        },
-      })
-      .to(".title1", {
-        scale: 0.2,
-        duration: 1,
-        ease: "power2.inOut",
-      })
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ✅ title1 애니메이션 (초기 멈춤 상태)
+    const title1Timeline = gsap.timeline({ paused: true });
+
+    title1Timeline
+      .to(".title1", { scale: 0.2, duration: 1, ease: "power2.inOut" })
       .to(".title1", {
         x: "-180",
         y: "-190",
         duration: 1,
         ease: "power2.inOut",
       });
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".title-container",
-          start: "top top",
-          end: "800% top",
-          scrub: true,
-          pin: false,
-          pinSpacing: false,
-        },
-      })
+
+    ScrollTrigger.create({
+      trigger: ".main-content",
+      start: "top top",
+      end: "90% top",
+      scrub: true,
+      pin: true,
+      pinSpacing: false,
+      onEnter: () => title1Timeline.play(),
+      onLeaveBack: () => title1Timeline.pause(),
+    });
+
+    // ✅ title-container 애니메이션 (초기 멈춤 상태)
+    const titleContainerTimeline = gsap.timeline({ paused: true });
+
+    titleContainerTimeline
       .fromTo(
         ".title2",
         { x: "30vw", y: 0 },
         { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
         "+=13"
       )
-      .to(
-        ".title2",
-        {
-          opacity: 1,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=14"
-      )
-      .to(
-        ".title2",
-        {
-          opacity: 0,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=10"
-      )
-      .fromTo(
-        ".title4",
-        { x: "30vw", y: 200 },
-        { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
-        "-=15"
-      )
-      .to(
-        ".title4",
-        {
-          opacity: 1,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=14"
-      )
-      .to(
-        ".title4",
-        {
-          opacity: 0,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=10"
-      )
-      .fromTo(
-        ".title3",
-        { x: "-30vw", y: 100 },
-        { x: "100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
-        "-=15"
-      )
-      .to(
-        ".title3",
-        {
-          opacity: 1,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=14"
-      )
-      .to(
-        ".title3",
-        {
-          opacity: 0,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=10"
-      )
-      .to(
-        ".title1",
-        {
-          x: "100vw",
-          opacity: 0,
-          duration: 6,
-          ease: "power1.inOut",
-        },
-        "-=10"
-      );
+      .to(".title2", { opacity: 1, duration: 5, ease: "power1.inOut" }, "-=14")
+      .to(".title2", { opacity: 0, duration: 5, ease: "power1.inOut" }, "-=10");
 
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".main-content2",
-          start: "top+=10% top",
-          end: "bottom+=50% top",
-          scrub: 2,
-          pin: true,
-          pinSpacing: true,
-        },
-      })
+    ScrollTrigger.create({
+      trigger: ".title-container",
+      start: "top top",
+      end: "800% top",
+      scrub: true,
+      pin: false,
+      pinSpacing: false,
+      onEnter: () => titleContainerTimeline.play(),
+      onLeaveBack: () => titleContainerTimeline.pause(),
+    });
+
+    // ✅ main-content2 애니메이션 (초기 멈춤 상태)
+    const mainContent2Timeline = gsap.timeline({ paused: true });
+
+    mainContent2Timeline
       .fromTo(
         ".main-content2 .logo1",
         { opacity: 0 },
@@ -148,17 +73,21 @@ const Main = () => {
         ease: "power2.inOut",
       });
 
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".main-content3",
-          start: "top+=5% top",
-          end: "bottom+=70% top",
-          scrub: 2,
-          pin: true,
-          pinSpacing: true,
-        },
-      })
+    ScrollTrigger.create({
+      trigger: ".main-content2",
+      start: "top+=10% top",
+      end: "bottom+=50% top",
+      scrub: 2,
+      pin: true,
+      pinSpacing: true,
+      onEnter: () => mainContent2Timeline.play(),
+      onLeaveBack: () => mainContent2Timeline.pause(),
+    });
+
+    // ✅ main-content3 애니메이션 (초기 멈춤 상태)
+    const mainContent3Timeline = gsap.timeline({ paused: true });
+
+    mainContent3Timeline
       .fromTo(
         ".main-content3 .title5",
         { opacity: 0, scale: 1 },
@@ -175,48 +104,16 @@ const Main = () => {
         ease: "power2.inOut",
       });
 
-    gsap.set(".main-content4", { opacity: 1 });
-
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".main-content4",
-          start: "top+=50% center",
-          end: "+=155%",
-          scrub: 2,
-          pin: true,
-          pinSpacing: false,
-          onEnter: () => {
-            gsap.to(window, {
-              scrollTo: { y: "max", autoKill: false },
-              duration: 0.1,
-            });
-          },
-        },
-      })
-      .fromTo(
-        ".main-content4 .title6",
-        { opacity: 0 },
-        { opacity: 1, duration: 15, ease: "power1.inOut" }
-      )
-      .fromTo(
-        ".main-content4 .title7",
-        { opacity: 0 },
-        { opacity: 1, duration: 15, ease: "power1.inOut" },
-        "+=15"
-      )
-      .fromTo(
-        ".main-content4 .button1",
-        { opacity: 0 },
-        { opacity: 1, duration: 15, ease: "power1.inOut" },
-        "+=5"
-      )
-      .fromTo(
-        ".main-content4 .button2",
-        { opacity: 0 },
-        { opacity: 1, duration: 15, ease: "power1.inOut" },
-        "+=5"
-      );
+    ScrollTrigger.create({
+      trigger: ".main-content3",
+      start: "top+=5% top",
+      end: "bottom+=70% top",
+      scrub: 2,
+      pin: true,
+      pinSpacing: true,
+      onEnter: () => mainContent3Timeline.play(),
+      onLeaveBack: () => mainContent3Timeline.pause(),
+    });
 
     window.addEventListener("resize", ScrollTrigger.update);
     const videoElement = document.getElementById("background-video");
