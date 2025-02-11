@@ -18,7 +18,7 @@ const Main = () => {
             trigger: ".main-content",
             start: "top top",
             end: "90% top",
-            scrub: true,
+            scrub: 1,
             pin: true,
             pinSpacing: true,
             toggleActions: "restart pause resume pause",
@@ -41,7 +41,7 @@ const Main = () => {
             trigger: ".title-container",
             start: "top top",
             end: "800% top",
-            scrub: true,
+            scrub: 1,
             pin: false,
             pinSpacing: true,
           },
@@ -222,8 +222,7 @@ const Main = () => {
         );
       setTimeout(() => {
         ScrollTrigger.refresh();
-        window.location.reload();
-      }, 1000);
+      }, 500);
     };
 
     window.addEventListener("resize", ScrollTrigger.update);
