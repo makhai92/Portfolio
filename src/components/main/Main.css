@@ -9,8 +9,7 @@
 }
 .main-content {
   width: 100%;
-  height: auto; /* 스크롤을 위한 충분한 높이로 설정 */
-  min-height: 100lvh;
+  height: 700vh; /* 스크롤을 위한 충분한 높이로 설정 */
   position: relative;
   overflow: hidden;
 }
