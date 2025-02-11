@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "./menu.css";
 import {
   FaJava,
@@ -29,9 +29,9 @@ import { ReactTyped } from "react-typed";
 function Menu() {
   const [selectedTab, setSelectedTab] = useState("menu");
   // 상태 관리
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [setName] = useState("");
+  const [setEmail] = useState("");
+  const [setMessage] = useState("");
   const imgBxRefs = useRef([]);
   const [hoveredProject, setHoveredProject] = useState(null);
 
@@ -287,7 +287,7 @@ function Menu() {
     }
   };
   */
-  const [isHovered, setIsHovered] = useState(false);
+  const [setIsHovered] = useState(false);
 
   const handleHover = (hoverState) => {
     setIsHovered(hoverState);
