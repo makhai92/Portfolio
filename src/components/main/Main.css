@@ -6,12 +6,10 @@
 .main-content4 {
   margin: 0; /* 각 섹션의 상하 간격을 제거 */
   padding: 0; /* 패딩도 제거하여 공백 줄임 */
-  overflow: hidden;
 }
 .main-content {
   width: 100%;
-  height: auto; /* 스크롤을 위한 충분한 높이로 설정 */
-  min-height: 200vh;
+  height: 700vh; /* 스크롤을 위한 충분한 높이로 설정 */
   position: relative;
   overflow: hidden;
 }
@@ -52,7 +50,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
-  opacity: 1;
+  opacity: 0;
   white-space: nowrap;
 }
 

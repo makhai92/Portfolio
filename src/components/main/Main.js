@@ -255,65 +255,9 @@ const Main = () => {
       .querySelector(".arrow-down a")
       .addEventListener("click", handleArrowClick);
 
-    setTimeout(() => {
-      ScrollTrigger.refresh();
-      window.location.reload();
-    }, 500);
+    setTimeout(() => ScrollTrigger.refresh(), 500);
   }, []);
-  useEffect(() => {
-    const initAnimations = () => {
-      gsap.registerPlugin(ScrollTrigger);
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".main-content",
-            start: "top top",
-            end: "90% top",
-            scrub: true,
-            pin: true,
-            pinSpacing: true,
-          },
-        })
-        .to(".title1", {
-          scale: 0.2,
-          duration: 1,
-          ease: "power2.inOut",
-        })
-        .to(".title1", {
-          x: "-180",
-          y: "-190",
-          duration: 1,
-          ease: "power2.inOut",
-        });
-
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".main-content2",
-            start: "top+=10% top",
-            end: "bottom+=50% top",
-            scrub: 2,
-            pin: true,
-            pinSpacing: true,
-          },
-        })
-        .fromTo(
-          ".main-content2 .logo1",
-          { opacity: 0 },
-          { opacity: 1, duration: 5 }
-        )
-        .to(".main-content2 .logo1", { opacity: 0, duration: 5 });
-
-      setTimeout(() => ScrollTrigger.refresh(), 500);
-    };
-
-    if (document.readyState === "complete") {
-      initAnimations();
-    } else {
-      window.onload = initAnimations;
-    }
-  }, []);
   return (
     <div>
       <div className="video-background">
