@@ -9,56 +9,122 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const Main = () => {
   useEffect(() => {
-    // 🌟 메인 타이틀 애니메이션
     gsap
       .timeline({
         scrollTrigger: {
           trigger: ".main-content",
           start: "top top",
           end: "90% top",
-          scrub: 1,
+          scrub: true,
           pin: true,
+          pinSpacing: false,
         },
       })
       .to(".title1", {
         scale: 0.2,
+        duration: 1,
+        ease: "power2.inOut",
+      })
+      .to(".title1", {
         x: "-180",
         y: "-190",
-        duration: 2,
+        duration: 1,
         ease: "power2.inOut",
       });
-
-    // 🌟 타이틀 등장 및 사라지는 애니메이션
     gsap
       .timeline({
         scrollTrigger: {
           trigger: ".title-container",
           start: "top top",
           end: "800% top",
-          scrub: 1,
+          scrub: true,
+          pin: false,
+          pinSpacing: false,
         },
       })
       .fromTo(
         ".title2",
-        { x: "30vw", opacity: 0 },
-        { x: "-100vw", opacity: 1, duration: 10 }
+        { x: "30vw", y: 0 },
+        { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+        "+=13"
       )
-      .to(".title2", { opacity: 0, duration: 5 }, "-=5")
+      .to(
+        ".title2",
+        {
+          opacity: 1,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=14"
+      )
+      .to(
+        ".title2",
+        {
+          opacity: 0,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=10"
+      )
       .fromTo(
         ".title4",
-        { x: "30vw", y: 200, opacity: 0 },
-        { x: "-100vw", opacity: 1, duration: 10 }
+        { x: "30vw", y: 200 },
+        { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+        "-=15"
       )
-      .to(".title4", { opacity: 0, duration: 5 }, "-=5")
+      .to(
+        ".title4",
+        {
+          opacity: 1,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=14"
+      )
+      .to(
+        ".title4",
+        {
+          opacity: 0,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=10"
+      )
       .fromTo(
         ".title3",
-        { x: "-30vw", y: 100, opacity: 0 },
-        { x: "100vw", opacity: 1, duration: 10 }
+        { x: "-30vw", y: 100 },
+        { x: "100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+        "-=15"
       )
-      .to(".title3", { opacity: 0, duration: 5 }, "-=5")
-      .to(".title1", { x: "100vw", opacity: 0, duration: 6 }, "-=5");
+      .to(
+        ".title3",
+        {
+          opacity: 1,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=14"
+      )
+      .to(
+        ".title3",
+        {
+          opacity: 0,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=10"
+      )
+      .to(
+        ".title1",
+        {
+          x: "100vw",
+          opacity: 0,
+          duration: 6,
+          ease: "power1.inOut",
+        },
+        "-=10"
+      );
 
-    // 🌟 메인 컨텐츠 2 애니메이션
     gsap
       .timeline({
         scrollTrigger: {
@@ -67,16 +133,20 @@ const Main = () => {
           end: "bottom+=50% top",
           scrub: 2,
           pin: true,
+          pinSpacing: true,
         },
       })
       .fromTo(
         ".main-content2 .logo1",
         { opacity: 0 },
-        { opacity: 1, duration: 5 }
+        { opacity: 1, duration: 5, ease: "power2.inOut" }
       )
-      .to(".main-content2 .logo1", { opacity: 0, duration: 5 });
+      .to(".main-content2 .logo1", {
+        opacity: 0,
+        duration: 5,
+        ease: "power2.inOut",
+      });
 
-    // 🌟 메인 컨텐츠 3 애니메이션
     gsap
       .timeline({
         scrollTrigger: {
@@ -85,17 +155,27 @@ const Main = () => {
           end: "bottom+=70% top",
           scrub: 2,
           pin: true,
+          pinSpacing: true,
         },
       })
       .fromTo(
         ".main-content3 .title5",
         { opacity: 0, scale: 1 },
-        { opacity: 1, scale: 1, duration: 4 }
+        { opacity: 1, scale: 1, duration: 4, ease: "power2.inOut" }
       )
-      .to(".main-content3 .title5", { scale: 10, duration: 4 })
-      .to(".main-content3 .title5", { opacity: 0, duration: 4 });
+      .to(".main-content3 .title5", {
+        scale: 10,
+        duration: 4,
+        ease: "power2.inOut",
+      })
+      .to(".main-content3 .title5", {
+        opacity: 0,
+        duration: 4,
+        ease: "power2.inOut",
+      });
 
-    // 🌟 메인 컨텐츠 4 애니메이션 (버튼 포함)
+    gsap.set(".main-content4", { opacity: 1 });
+
     gsap
       .timeline({
         scrollTrigger: {
@@ -104,30 +184,37 @@ const Main = () => {
           end: "+=155%",
           scrub: 2,
           pin: true,
+          pinSpacing: false,
+          onEnter: () => {
+            gsap.to(window, {
+              scrollTo: { y: "max", autoKill: false },
+              duration: 0.1,
+            });
+          },
         },
       })
       .fromTo(
         ".main-content4 .title6",
         { opacity: 0 },
-        { opacity: 1, duration: 8 }
+        { opacity: 1, duration: 15, ease: "power1.inOut" }
       )
       .fromTo(
         ".main-content4 .title7",
         { opacity: 0 },
-        { opacity: 1, duration: 8 },
-        "+=8"
+        { opacity: 1, duration: 15, ease: "power1.inOut" },
+        "+=15"
       )
       .fromTo(
         ".main-content4 .button1",
         { opacity: 0 },
-        { opacity: 1, duration: 6 },
-        "+=4"
+        { opacity: 1, duration: 15, ease: "power1.inOut" },
+        "+=5"
       )
       .fromTo(
         ".main-content4 .button2",
         { opacity: 0 },
-        { opacity: 1, duration: 6 },
-        "+=4"
+        { opacity: 1, duration: 15, ease: "power1.inOut" },
+        "+=5"
       );
 
     window.addEventListener("resize", ScrollTrigger.update);
