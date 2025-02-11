@@ -254,6 +254,8 @@ const Main = () => {
     document
       .querySelector(".arrow-down a")
       .addEventListener("click", handleArrowClick);
+
+    ScrollTrigger.refresh();
   }, []);
 
   return (
