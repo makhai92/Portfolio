@@ -17,7 +17,7 @@ const Main = () => {
           end: "90% top",
           scrub: true,
           pin: true,
-          pinSpacing: false,
+          pinSpacing: true,
           toggleActions: "restart pause resume pause",
         },
       })
@@ -40,7 +40,7 @@ const Main = () => {
           end: "800% top",
           scrub: true,
           pin: false,
-          pinSpacing: false,
+          pinSpacing: true,
         },
       })
       .fromTo(
@@ -185,7 +185,7 @@ const Main = () => {
           end: "+=155%",
           scrub: 2,
           pin: true,
-          pinSpacing: false,
+          pinSpacing: true,
           onEnter: () => {
             gsap.to(window, {
               scrollTo: { y: "max", autoKill: false },
