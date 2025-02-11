@@ -255,7 +255,7 @@ const Main = () => {
       .querySelector(".arrow-down a")
       .addEventListener("click", handleArrowClick);
 
-    ScrollTrigger.refresh();
+    setTimeout(() => ScrollTrigger.refresh(), 500);
   }, []);
 
   return (
