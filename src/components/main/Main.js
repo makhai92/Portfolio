@@ -284,33 +284,34 @@ const Main = () => {
         <div className="title-container">
           <span className="title1">PortFolio</span>
           <span className="title2">Yang's</span>
-          <span className="title3">Frontend</span>
+          <span className="title3">Innovator</span>
           <span className="title4">Developer</span>
         </div>
       </div>
 
       <div className="main-content2">
-        <span className="logo1">Frontend Developer</span>
+        <span className="logo1">Visionary Developer</span>
       </div>
 
       <div className="main-content3">
-        <span className="title5">혁신적인 프론트엔드</span>
+        <span className="title5">비전을 현실로, 혁신을 미래로</span>
       </div>
 
       <div className="main-content4">
         <div className="content">
           <span className="title6">
-            "일상을 변화시키는 인터페이스를 만들자"
+            "혁신적인 기술로 세상을 변화시키다"
             <br />
-            저의 프론트엔드가 추구하는 목표입니다.
+            저의 개발은 단순한 코드 그 이상입니다.
             <br />
           </span>
           <span className="title7">
-            최초의 기술 혁신이 생활 방식을 변화시켰던 것처럼,
+            비전 있는 개발자가 만드는 차이는 분명합니다.
             <br />
-            사용자 중심의 디자인과 부드러운 기능 구현을 통해
+            강력한 로직, 견고한 아키텍처, 그리고 최적화된 시스템.
             <br />
-            일상 속 경험을 한 단계 높이는 작업을 지향합니다.
+            기술과 혁신을 결합하여 한계를 넘어서고,
+            <br />더 빠르고 효율적인 세상을 만들어 갑니다.
           </span>
           <div className="main-button">
             <Link to="/menu">
