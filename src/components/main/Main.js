@@ -18,6 +18,7 @@ const Main = () => {
           scrub: true,
           pin: true,
           pinSpacing: false,
+          toggleActions: "restart pause resume pause",
         },
       })
       .to(".title1", {
