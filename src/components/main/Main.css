@@ -1,28 +1,5 @@
 /* 메인 콘텐츠 설정 */
 
-/* ✅ 초기 상태: GSAP 적용 전까지 숨김 */
-.title1,
-.title2,
-.title3,
-.title4,
-.logo1,
-.title5,
-.title6,
-.title7,
-.button1 {
-  visibility: hidden;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-/* ✅ GSAP가 적용된 후 애니메이션 실행 */
-.gsap-animated {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
 .main-content,
 .main-content2,
 .main-content3,
