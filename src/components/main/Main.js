@@ -5,17 +5,12 @@ import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { Link } from "react-router-dom";
 import "./Main.css";
 
-// ✅ GSAP 플러그인 등록
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const Main = () => {
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      // ✅ ScrollTrigger 적용 방식 수정 (gsap.to() 사용)
-      gsap.to(".title1", {
-        scale: 0.2,
-        duration: 1,
-        ease: "power2.inOut",
+    gsap
+      .timeline({
         scrollTrigger: {
           trigger: ".main-content",
           start: "top top",
@@ -25,26 +20,20 @@ const Main = () => {
           pinSpacing: true,
           toggleActions: "restart pause resume pause",
         },
-      });
-
-      gsap.to(".title1", {
+      })
+      .to(".title1", {
+        scale: 0.2,
+        duration: 1,
+        ease: "power2.inOut",
+      })
+      .to(".title1", {
         x: "-180",
         y: "-190",
         duration: 1,
         ease: "power2.inOut",
-        scrollTrigger: {
-          trigger: ".main-content",
-          start: "top top",
-          end: "90% top",
-          scrub: true,
-        },
       });
-
-      gsap.to(".title2", {
-        x: "-100vw",
-        opacity: 1,
-        duration: 15,
-        ease: "power1.inOut",
+    gsap
+      .timeline({
         scrollTrigger: {
           trigger: ".title-container",
           start: "top top",
@@ -53,24 +42,143 @@ const Main = () => {
           pin: false,
           pinSpacing: true,
         },
-      });
-
-      gsap.to(".title1", {
-        x: "100vw",
-        opacity: 0,
-        duration: 6,
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: ".title-container",
-          start: "top top",
-          end: "800% top",
-          scrub: true,
+      })
+      .fromTo(
+        ".title2",
+        { x: "30vw", y: 0 },
+        { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+        "+=13"
+      )
+      .to(
+        ".title2",
+        {
+          opacity: 1,
+          duration: 5,
+          ease: "power1.inOut",
         },
+        "-=14"
+      )
+      .to(
+        ".title2",
+        {
+          opacity: 0,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=10"
+      )
+      .fromTo(
+        ".title4",
+        { x: "30vw", y: 200 },
+        { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+        "-=15"
+      )
+      .to(
+        ".title4",
+        {
+          opacity: 1,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=14"
+      )
+      .to(
+        ".title4",
+        {
+          opacity: 0,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=10"
+      )
+      .fromTo(
+        ".title3",
+        { x: "-30vw", y: 100 },
+        { x: "100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+        "-=15"
+      )
+      .to(
+        ".title3",
+        {
+          opacity: 1,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=14"
+      )
+      .to(
+        ".title3",
+        {
+          opacity: 0,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=10"
+      )
+      .to(
+        ".title1",
+        {
+          x: "100vw",
+          opacity: 0,
+          duration: 6,
+          ease: "power1.inOut",
+        },
+        "-=10"
+      );
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".main-content2",
+          start: "top+=10% top",
+          end: "bottom+=50% top",
+          scrub: 2,
+          pin: true,
+          pinSpacing: true,
+        },
+      })
+      .fromTo(
+        ".main-content2 .logo1",
+        { opacity: 0 },
+        { opacity: 1, duration: 5, ease: "power2.inOut" }
+      )
+      .to(".main-content2 .logo1", {
+        opacity: 0,
+        duration: 5,
+        ease: "power2.inOut",
       });
 
-      gsap.to(window, {
-        scrollTo: { y: "max", autoKill: false },
-        duration: 0.1,
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".main-content3",
+          start: "top+=5% top",
+          end: "bottom+=70% top",
+          scrub: 2,
+          pin: true,
+          pinSpacing: true,
+        },
+      })
+      .fromTo(
+        ".main-content3 .title5",
+        { opacity: 0, scale: 1 },
+        { opacity: 1, scale: 1, duration: 4, ease: "power2.inOut" }
+      )
+      .to(".main-content3 .title5", {
+        scale: 10,
+        duration: 4,
+        ease: "power2.inOut",
+      })
+      .to(".main-content3 .title5", {
+        opacity: 0,
+        duration: 4,
+        ease: "power2.inOut",
+      });
+
+    gsap.set(".main-content4", { opacity: 1 });
+
+    gsap
+      .timeline({
         scrollTrigger: {
           trigger: ".main-content4",
           start: "top+=50% center",
@@ -78,72 +186,76 @@ const Main = () => {
           scrub: 2,
           pin: true,
           pinSpacing: true,
+          onEnter: () => {
+            gsap.to(window, {
+              scrollTo: { y: "max", autoKill: false },
+              duration: 0.1,
+            });
+          },
         },
-      });
+      })
+      .fromTo(
+        ".main-content4 .title6",
+        { opacity: 0 },
+        { opacity: 1, duration: 15, ease: "power1.inOut" }
+      )
+      .fromTo(
+        ".main-content4 .title7",
+        { opacity: 0 },
+        { opacity: 1, duration: 15, ease: "power1.inOut" },
+        "+=15"
+      )
+      .fromTo(
+        ".main-content4 .button1",
+        { opacity: 0 },
+        { opacity: 1, duration: 15, ease: "power1.inOut" },
+        "+=5"
+      )
+      .fromTo(
+        ".main-content4 .button2",
+        { opacity: 0 },
+        { opacity: 1, duration: 15, ease: "power1.inOut" },
+        "+=5"
+      );
 
-      // ✅ GSAP 애니메이션 적용 후 refresh()
-      ScrollTrigger.refresh();
-    });
-
-    // ✅ Window Resize 이벤트 리스너 추가 & 정리
-    const handleResize = () => ScrollTrigger.update();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      ctx.revert(); // GSAP 애니메이션 정리
-      window.removeEventListener("resize", handleResize); // 리스너 정리
-    };
-  }, []);
-
-  useEffect(() => {
+    window.addEventListener("resize", ScrollTrigger.update);
     const videoElement = document.getElementById("background-video");
     const videos = [
-      "https://videos.pexels.com/video-files/11584395/11584395-uhd_2560_1440_60fps.mp4",
-      "https://videos.pexels.com/video-files/10532470/10532470-uhd_2560_1440_30fps.mp4",
+      `https://videos.pexels.com/video-files/11584395/11584395-uhd_2560_1440_60fps.mp4`,
+      `https://videos.pexels.com/video-files/10532470/10532470-uhd_2560_1440_30fps.mp4`,
     ];
 
     let currentVideoIndex = 0;
 
     const playVideo = () => {
-      if (videoElement && videoElement.paused) {
+      if (videoElement.paused) {
         videoElement.play().catch((error) => {
           console.log("Playback error:", error);
         });
       }
     };
 
-    if (videoElement) {
-      videoElement.addEventListener("ended", function () {
-        currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-        videoElement.src = videos[currentVideoIndex];
-        videoElement.load();
-        playVideo();
-      });
-
+    videoElement.addEventListener("ended", function () {
+      currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+      videoElement.src = videos[currentVideoIndex];
+      videoElement.load();
       playVideo();
-    }
-  }, []);
-
-  useEffect(() => {
-    // ✅ 화살표 버튼 클릭 시 스크롤 이동
+    });
+    playVideo();
+    // 하단 고정된 화살표 버튼 클릭 시 즉시 맨 아래로 이동
     const handleArrowClick = (e) => {
       e.preventDefault();
       window.scrollTo({
         top: document.body.scrollHeight,
-        behavior: "smooth",
+        behavior: "auto", // 즉시 이동
       });
     };
 
-    const arrowButton = document.querySelector(".arrow-down a");
-    if (arrowButton) {
-      arrowButton.addEventListener("click", handleArrowClick);
-    }
+    document
+      .querySelector(".arrow-down a")
+      .addEventListener("click", handleArrowClick);
 
-    return () => {
-      if (arrowButton) {
-        arrowButton.removeEventListener("click", handleArrowClick);
-      }
-    };
+    setTimeout(() => ScrollTrigger.refresh(), 500);
   }, []);
 
   return (
