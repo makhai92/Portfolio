@@ -45,74 +45,74 @@ const Main = () => {
       .fromTo(
         ".title2",
         { x: "30vw", y: 0 },
-        { x: "-100vw", opacity: 1, duration: 5, ease: "power1.inOut" },
+        { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
         "+=13"
       )
       .to(
         ".title2",
         {
           opacity: 1,
-          duration: 2,
+          duration: 5,
           ease: "power1.inOut",
         },
-        "-=1"
+        "-=14"
       )
       .to(
         ".title2",
         {
           opacity: 0,
-          duration: 2,
+          duration: 5,
           ease: "power1.inOut",
         },
-        "-=2"
+        "-=10"
       )
       .fromTo(
         ".title4",
         { x: "30vw", y: 200 },
-        { x: "-100vw", opacity: 1, duration: 2, ease: "power1.inOut" },
-        "-=3"
+        { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+        "-=15"
       )
       .to(
         ".title4",
         {
           opacity: 1,
-          duration: 2,
+          duration: 5,
           ease: "power1.inOut",
         },
-        "-=2"
+        "-=14"
       )
       .to(
         ".title4",
         {
           opacity: 0,
-          duration: 3,
+          duration: 5,
           ease: "power1.inOut",
         },
-        "-=2"
+        "-=10"
       )
       .fromTo(
         ".title3",
         { x: "-30vw", y: 100 },
-        { x: "100vw", opacity: 1, duration: 3, ease: "power1.inOut" },
-        "-=2"
+        { x: "100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+        "-=15"
       )
       .to(
         ".title3",
         {
           opacity: 1,
-          duration: 2,
+          duration: 5,
           ease: "power1.inOut",
         },
-        "-=2"
+        "-=14"
       )
       .to(
         ".title3",
         {
           opacity: 0,
-          duration: 2,
+          duration: 5,
           ease: "power1.inOut",
         },
-        "-=2"
+        "-=10"
       )
       .to(
         ".title1",
@@ -122,7 +122,7 @@ const Main = () => {
           duration: 6,
           ease: "power1.inOut",
         },
-        "-=3"
+        "-=10"
       );
 
     gsap
@@ -139,11 +139,11 @@ const Main = () => {
       .fromTo(
         ".main-content2 .logo1",
         { opacity: 0 },
-        { opacity: 1, duration: 2, ease: "power2.inOut" }
+        { opacity: 1, duration: 5, ease: "power2.inOut" }
       )
       .to(".main-content2 .logo1", {
         opacity: 0,
-        duration: 2,
+        duration: 5,
         ease: "power2.inOut",
       });
 
@@ -161,16 +161,16 @@ const Main = () => {
       .fromTo(
         ".main-content3 .title5",
         { opacity: 0, scale: 1 },
-        { opacity: 1, scale: 1, duration: 3, ease: "power2.inOut" }
+        { opacity: 1, scale: 1, duration: 4, ease: "power2.inOut" }
       )
       .to(".main-content3 .title5", {
         scale: 10,
-        duration: 2,
+        duration: 4,
         ease: "power2.inOut",
       })
       .to(".main-content3 .title5", {
         opacity: 0,
-        duration: 2,
+        duration: 4,
         ease: "power2.inOut",
       });
 
@@ -190,25 +190,25 @@ const Main = () => {
       .fromTo(
         ".main-content4 .title6",
         { opacity: 0 },
-        { opacity: 1, duration: 2, ease: "power1.inOut" }
+        { opacity: 1, duration: 15, ease: "power1.inOut" }
       )
       .fromTo(
         ".main-content4 .title7",
         { opacity: 0 },
-        { opacity: 1, duration: 2, ease: "power1.inOut" },
-        "+=2"
+        { opacity: 1, duration: 15, ease: "power1.inOut" },
+        "+=15"
       )
       .fromTo(
         ".main-content4 .button1",
         { opacity: 0 },
-        { opacity: 1, duration: 2, ease: "power1.inOut" },
-        "+=2"
+        { opacity: 1, duration: 15, ease: "power1.inOut" },
+        "+=5"
       )
       .fromTo(
         ".main-content4 .button2",
         { opacity: 0 },
-        { opacity: 1, duration: 2, ease: "power1.inOut" },
-        "+=1"
+        { opacity: 1, duration: 15, ease: "power1.inOut" },
+        "+=5"
       );
 
     window.addEventListener("resize", ScrollTrigger.update);
