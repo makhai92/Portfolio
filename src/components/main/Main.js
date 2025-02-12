@@ -46,85 +46,54 @@ const Main = () => {
       .fromTo(
         ".title2",
         { x: "30vw", y: 0 },
-        { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
-        "+=13"
+        { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" }
       )
-      .to(
-        ".title2",
-        {
-          opacity: 1,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=14"
-      )
-      .to(
-        ".title2",
-        {
-          opacity: 0,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=10"
-      )
+      .to(".title2", {
+        opacity: 1,
+        duration: 5,
+        ease: "power1.inOut",
+      })
+      .to(".title2", {
+        opacity: 0,
+        duration: 5,
+        ease: "power1.inOut",
+      })
       .fromTo(
         ".title4",
         { x: "30vw", y: 200 },
-        { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
-        "-=15"
+        { x: "-100vw", opacity: 1, duration: 1, ease: "power1.inOut" }
       )
-      .to(
-        ".title4",
-        {
-          opacity: 1,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=14"
-      )
-      .to(
-        ".title4",
-        {
-          opacity: 0,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=10"
-      )
+      .to(".title4", {
+        opacity: 1,
+        duration: 5,
+        ease: "power1.inOut",
+      })
+      .to(".title4", {
+        opacity: 0,
+        duration: 5,
+        ease: "power1.inOut",
+      })
       .fromTo(
         ".title3",
         { x: "-30vw", y: 100 },
-        { x: "100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
-        "-=15"
+        { x: "100vw", opacity: 1, duration: 15, ease: "power1.inOut" }
       )
-      .to(
-        ".title3",
-        {
-          opacity: 1,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=14"
-      )
-      .to(
-        ".title3",
-        {
-          opacity: 0,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=10"
-      )
-      .to(
-        ".title1",
-        {
-          x: "100vw",
-          opacity: 0,
-          duration: 6,
-          ease: "power1.inOut",
-        },
-        "-=10"
-      );
+      .to(".title3", {
+        opacity: 1,
+        duration: 5,
+        ease: "power1.inOut",
+      })
+      .to(".title3", {
+        opacity: 0,
+        duration: 5,
+        ease: "power1.inOut",
+      })
+      .to(".title1", {
+        x: "100vw",
+        opacity: 0,
+        duration: 6,
+        ease: "power1.inOut",
+      });
 
     gsap
       .timeline({
@@ -197,19 +166,17 @@ const Main = () => {
       .fromTo(
         ".main-content4 .title6",
         { opacity: 0 },
-        { opacity: 1, duration: 15, ease: "power1.inOut" }
+        { opacity: 1, duration: 0.2, ease: "power1.inOut" }
       )
       .fromTo(
         ".main-content4 .title7",
         { opacity: 0 },
-        { opacity: 1, duration: 15, ease: "power1.inOut" },
-        "+=15"
+        { opacity: 1, duration: 0.2, ease: "power1.inOut" }
       )
       .fromTo(
         ".main-content4 .button1",
         { opacity: 0 },
-        { opacity: 1, duration: 15, ease: "power1.inOut" },
-        "+=5"
+        { opacity: 1, duration: 0.2, ease: "power1.inOut" }
       );
 
     window.addEventListener("resize", ScrollTrigger.update);
