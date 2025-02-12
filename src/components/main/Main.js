@@ -13,7 +13,7 @@ const Main = () => {
       .timeline({
         scrollTrigger: {
           trigger: ".main-content",
-          start: "top top",
+          start: "top+=100 center",
           end: "90% top",
           scrub: true,
           pin: true,
@@ -35,7 +35,7 @@ const Main = () => {
       .timeline({
         scrollTrigger: {
           trigger: ".title-container",
-          start: "top top",
+          start: "top+=150 center",
           end: "800% top",
           scrub: true,
           pin: false,
@@ -44,7 +44,7 @@ const Main = () => {
       })
       .fromTo(
         ".title2",
-        { x: "30vw", y: 0 },
+        { x: "30vw", y: 0, opacity: 0 },
         { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
         "+=13"
       )
