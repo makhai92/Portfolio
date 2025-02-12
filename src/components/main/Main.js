@@ -209,10 +209,15 @@ const Main = () => {
       ScrollTrigger.refresh();
     });
 
-    return () => ctx.revert();
+    const handleResize = () => ScrollTrigger.update();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      ctx.revert(); // ✅ GSAP 애니메이션 정리
+      window.removeEventListener("resize", handleResize); // ✅ 리스너 정리
+    };
   }, []);
   useEffect(() => {
-    window.addEventListener("resize", ScrollTrigger.update);
     const videoElement = document.getElementById("background-video");
     const videos = [
       `https://videos.pexels.com/video-files/11584395/11584395-uhd_2560_1440_60fps.mp4`,
