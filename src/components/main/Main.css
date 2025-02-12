@@ -697,14 +697,3 @@
   border: none;
   cursor: pointer;
 }
-.title1,
-.title2,
-.title3,
-.title4,
-.title5,
-.title6,
-.title7,
-.logo1 {
-  opacity: 0;
-  transform: translateY(100px); /* ✅ 초기에 화면 아래에 위치 */
-}
