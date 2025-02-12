@@ -217,32 +217,33 @@ const Main = () => {
 
     return () => ctx.revert();
   }, []);
-  window.addEventListener("resize", ScrollTrigger.update);
-  const videoElement = document.getElementById("background-video");
-  const videos = [
-    `https://videos.pexels.com/video-files/11584395/11584395-uhd_2560_1440_60fps.mp4`,
-    `https://videos.pexels.com/video-files/10532470/10532470-uhd_2560_1440_30fps.mp4`,
-  ];
+  useEffect(() => {
+    window.addEventListener("resize", ScrollTrigger.update);
+    const videoElement = document.getElementById("background-video");
+    const videos = [
+      `https://videos.pexels.com/video-files/11584395/11584395-uhd_2560_1440_60fps.mp4`,
+      `https://videos.pexels.com/video-files/10532470/10532470-uhd_2560_1440_30fps.mp4`,
+    ];
 
-  let currentVideoIndex = 0;
+    let currentVideoIndex = 0;
 
-  const playVideo = () => {
-    if (videoElement.paused) {
-      videoElement.play().catch((error) => {
-        console.log("Playback error:", error);
-      });
-    }
-  };
+    const playVideo = () => {
+      if (videoElement.paused) {
+        videoElement.play().catch((error) => {
+          console.log("Playback error:", error);
+        });
+      }
+    };
 
-  videoElement.addEventListener("ended", function () {
-    currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-    videoElement.src = videos[currentVideoIndex];
-    videoElement.load();
+    videoElement.addEventListener("ended", function () {
+      currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+      videoElement.src = videos[currentVideoIndex];
+      videoElement.load();
+      playVideo();
+    });
     playVideo();
-  });
-  playVideo();
-  // 하단 고정된 화살표 버튼 클릭 시 즉시 맨 아래로 이동
-
+    // 하단 고정된 화살표 버튼 클릭 시 즉시 맨 아래로 이동
+  }, []);
   const handleArrowClick = (e) => {
     e.preventDefault();
     const scrollHeight = Math.max(
