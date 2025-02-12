@@ -23,7 +23,6 @@ reportWebVitals();
 
 package.json에  추가해야됨
 /*  "homepage": "/portfolio/",*/
-*/
 
 import React from "react";
 import ReactDOM from "react-dom/client";
