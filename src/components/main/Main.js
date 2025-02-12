@@ -242,19 +242,14 @@ const Main = () => {
     });
     playVideo();
     // 하단 고정된 화살표 버튼 클릭 시 즉시 맨 아래로 이동
-    const handleArrowClick = (e) => {
-      e.preventDefault();
-      window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: "auto", // 즉시 이동
-      });
-    };
-
-    document
-      .querySelector(".arrow-down a")
-      .addEventListener("click", handleArrowClick);
   }, []);
-
+  const handleArrowClick = (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "auto", // 즉시 이동
+    });
+  };
   return (
     <div>
       <div className="video-background">
@@ -270,11 +265,11 @@ const Main = () => {
 
       {/* 하단에 고정된 버튼 */}
       <div className="arrow-down">
-        <a href="#">
+        <button className="arrow-button" onClick={handleArrowClick}>
           <span></span>
           <span></span>
           <span></span>
-        </a>
+        </button>
       </div>
 
       <div className="main-content">
