@@ -16,7 +16,6 @@ const Main = () => {
           start: "top top",
           end: "90% top",
           scrub: true,
-          pin: true,
           pinSpacing: false,
         },
       })
@@ -38,7 +37,6 @@ const Main = () => {
           start: "top top",
           end: "800% top",
           scrub: true,
-          pin: false,
           pinSpacing: false,
         },
       })
@@ -132,7 +130,6 @@ const Main = () => {
           start: "top+=10% top",
           end: "bottom+=50% top",
           scrub: 2,
-          pin: true,
           pinSpacing: true,
         },
       })
@@ -154,7 +151,6 @@ const Main = () => {
           start: "top+=5% top",
           end: "bottom+=70% top",
           scrub: 2,
-          pin: true,
           pinSpacing: true,
         },
       })
@@ -183,7 +179,6 @@ const Main = () => {
           start: "top+=50% center",
           end: "+=155%",
           scrub: 2,
-          pin: true,
           pinSpacing: false,
         },
       })
