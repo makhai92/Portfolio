@@ -1,0 +1,7 @@
+2025-02-11 22:20
+npm install react-router-dom
+npm install axios
+npm install gsap
+npm install react-icons
+npm install @mui/icons-material
+npm install react-typed

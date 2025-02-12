@@ -13,7 +13,7 @@ const Main = () => {
       .timeline({
         scrollTrigger: {
           trigger: ".main-content",
-          start: "top top",
+          start: "top+=20% top",
           end: "90% top",
           scrub: true,
           pin: true,
@@ -24,6 +24,7 @@ const Main = () => {
         scale: 0.2,
         duration: 1,
         ease: "power2.inOut",
+        immediateRender: false,
       })
       .to(".title1", {
         x: "-180",
@@ -35,7 +36,7 @@ const Main = () => {
       .timeline({
         scrollTrigger: {
           trigger: ".title-container",
-          start: "top top",
+          start: "top+=10% top",
           end: "800% top",
           scrub: true,
           pin: false,
@@ -129,7 +130,7 @@ const Main = () => {
       .timeline({
         scrollTrigger: {
           trigger: ".main-content2",
-          start: "top+=10% top",
+          start: "top+=30% top",
           end: "bottom+=50% top",
           scrub: 2,
           pin: true,
@@ -139,7 +140,12 @@ const Main = () => {
       .fromTo(
         ".main-content2 .logo1",
         { opacity: 0 },
-        { opacity: 1, duration: 5, ease: "power2.inOut" }
+        {
+          opacity: 1,
+          duration: 5,
+          ease: "power2.inOut",
+          immediateRender: false,
+        }
       )
       .to(".main-content2 .logo1", {
         opacity: 0,
