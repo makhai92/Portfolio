@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -17,8 +17,7 @@ const Main = () => {
           end: "90% top",
           scrub: true,
           pin: true,
-          pinSpacing: true,
-          toggleActions: "restart pause resume pause",
+          pinSpacing: false,
         },
       })
       .to(".title1", {
@@ -40,60 +39,91 @@ const Main = () => {
           end: "800% top",
           scrub: true,
           pin: false,
-          pinSpacing: true,
+          pinSpacing: false,
         },
       })
       .fromTo(
         ".title2",
         { x: "30vw", y: 0 },
-        { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" }
+        { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+        "+=13"
       )
-      .to(".title2", {
-        opacity: 1,
-        duration: 5,
-        ease: "power1.inOut",
-      })
-      .to(".title2", {
-        opacity: 0,
-        duration: 5,
-        ease: "power1.inOut",
-      })
+      .to(
+        ".title2",
+        {
+          opacity: 1,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=14"
+      )
+      .to(
+        ".title2",
+        {
+          opacity: 0,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=10"
+      )
       .fromTo(
         ".title4",
         { x: "30vw", y: 200 },
-        { x: "-100vw", opacity: 1, duration: 1, ease: "power1.inOut" }
+        { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+        "-=15"
       )
-      .to(".title4", {
-        opacity: 1,
-        duration: 5,
-        ease: "power1.inOut",
-      })
-      .to(".title4", {
-        opacity: 0,
-        duration: 5,
-        ease: "power1.inOut",
-      })
+      .to(
+        ".title4",
+        {
+          opacity: 1,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=14"
+      )
+      .to(
+        ".title4",
+        {
+          opacity: 0,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=10"
+      )
       .fromTo(
         ".title3",
         { x: "-30vw", y: 100 },
-        { x: "100vw", opacity: 1, duration: 15, ease: "power1.inOut" }
+        { x: "100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+        "-=15"
       )
-      .to(".title3", {
-        opacity: 1,
-        duration: 5,
-        ease: "power1.inOut",
-      })
-      .to(".title3", {
-        opacity: 0,
-        duration: 5,
-        ease: "power1.inOut",
-      })
-      .to(".title1", {
-        x: "100vw",
-        opacity: 0,
-        duration: 6,
-        ease: "power1.inOut",
-      });
+      .to(
+        ".title3",
+        {
+          opacity: 1,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=14"
+      )
+      .to(
+        ".title3",
+        {
+          opacity: 0,
+          duration: 5,
+          ease: "power1.inOut",
+        },
+        "-=10"
+      )
+      .to(
+        ".title1",
+        {
+          x: "100vw",
+          opacity: 0,
+          duration: 6,
+          ease: "power1.inOut",
+        },
+        "-=10"
+      );
 
     gsap
       .timeline({
@@ -154,7 +184,7 @@ const Main = () => {
           end: "+=155%",
           scrub: 2,
           pin: true,
-          pinSpacing: true,
+          pinSpacing: false,
           onEnter: () => {
             gsap.to(window, {
               scrollTo: { y: "max", autoKill: false },
@@ -166,17 +196,19 @@ const Main = () => {
       .fromTo(
         ".main-content4 .title6",
         { opacity: 0 },
-        { opacity: 1, duration: 0.2, ease: "power1.inOut" }
+        { opacity: 1, duration: 15, ease: "power1.inOut" }
       )
       .fromTo(
         ".main-content4 .title7",
         { opacity: 0 },
-        { opacity: 1, duration: 0.2, ease: "power1.inOut" }
+        { opacity: 1, duration: 15, ease: "power1.inOut" },
+        "+=15"
       )
       .fromTo(
         ".main-content4 .button1",
         { opacity: 0 },
-        { opacity: 1, duration: 0.2, ease: "power1.inOut" }
+        { opacity: 1, duration: 15, ease: "power1.inOut" },
+        "+=5"
       );
 
     window.addEventListener("resize", ScrollTrigger.update);
@@ -215,8 +247,6 @@ const Main = () => {
     document
       .querySelector(".arrow-down a")
       .addEventListener("click", handleArrowClick);
-
-    setTimeout(() => ScrollTrigger.refresh(), 500);
   }, []);
 
   return (
@@ -245,34 +275,33 @@ const Main = () => {
         <div className="title-container">
           <span className="title1">PortFolio</span>
           <span className="title2">Yang's</span>
-          <span className="title3">Innovator</span>
+          <span className="title3">Frontend</span>
           <span className="title4">Developer</span>
         </div>
       </div>
 
       <div className="main-content2">
-        <span className="logo1">Visionary Developer</span>
+        <span className="logo1">Frontend Developer</span>
       </div>
 
       <div className="main-content3">
-        <span className="title5">비전을 현실로, 혁신을 미래로</span>
+        <span className="title5">혁신적인 프론트엔드</span>
       </div>
 
       <div className="main-content4">
         <div className="content">
           <span className="title6">
-            "혁신적인 기술로 세상을 변화시키다"
+            "일상을 변화시키는 인터페이스를 만들자"
             <br />
-            저의 개발은 단순한 코드 그 이상입니다.
+            저의 프론트엔드가 추구하는 목표입니다.
             <br />
           </span>
           <span className="title7">
-            비전 있는 개발자가 만드는 차이는 분명합니다.
+            최초의 기술 혁신이 생활 방식을 변화시켰던 것처럼,
             <br />
-            강력한 로직, 견고한 아키텍처, 그리고 최적화된 시스템.
+            사용자 중심의 디자인과 부드러운 기능 구현을 통해
             <br />
-            기술과 혁신을 결합하여 한계를 넘어서고,
-            <br />더 빠르고 효율적인 세상을 만들어 갑니다.
+            일상 속 경험을 한 단계 높이는 작업을 지향합니다.
           </span>
           <div className="main-button">
             <Link to="/menu">

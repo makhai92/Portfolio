@@ -21,7 +21,7 @@ import { BiLogoSpringBoot } from "react-icons/bi";
 import { BsDatabaseCheck } from "react-icons/bs";
 import { VscVscode } from "react-icons/vsc";
 import { ReactTyped } from "react-typed";
-
+import emailjs from "@emailjs/browser";
 /*  */
 
 /*  */
@@ -303,6 +303,45 @@ function Menu() {
     setHoveredContentIndex(hoverState ? contentIndex : null);
   };
   /*  */
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .send(
+        "lucky92", // EmailJS에서 발급된 Service ID
+        "template_4zcacna", // EmailJS에서 발급된 Template ID
+        formData,
+        "1RNc-JVK21uORNll7" // EmailJS에서 발급된 Public Key
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          alert("이메일이 성공적으로 전송되었습니다!");
+        },
+        (error) => {
+          console.log("FAILED...", error);
+          alert("이메일 전송에 실패했습니다.");
+        }
+      );
+
+    // 입력값 초기화
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
+  };
   return (
     <div className="port-home">
       <form>
@@ -732,7 +771,12 @@ function Menu() {
             <div className="contact-body">
               <h1>Contact</h1>
               <div className="contact-wrapper">
-                <form id="contact-form" className="form-horizontal" role="form">
+                <form
+                  id="contact-form"
+                  className="form-horizontal"
+                  role="form"
+                  onSubmit={sendEmail}
+                >
                   <div className="form-group">
                     <div className="col-sm-12">
                       <input
@@ -741,6 +785,8 @@ function Menu() {
                         id="name"
                         placeholder="NAME"
                         name="name"
+                        value={formData.name}
+                        onChange={handleChange}
                         required
                       />
                     </div>
@@ -754,6 +800,8 @@ function Menu() {
                         id="email"
                         placeholder="EMAIL"
                         name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         required
                       />
                     </div>
@@ -764,6 +812,8 @@ function Menu() {
                     rows="10"
                     placeholder="MESSAGE"
                     name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     required
                   ></textarea>
 
