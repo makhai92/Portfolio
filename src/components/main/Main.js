@@ -10,6 +10,10 @@ const Main = () => {
   useEffect(() => {
     let ctx = gsap.context(() => {
       ScrollTrigger.refresh();
+
+      // ✅ GSAP 플러그인 로드 확인 (콘솔에서 결과 확인)
+      console.log("✅ GSAP ScrollTrigger Loaded:", ScrollTrigger);
+
       gsap
         .timeline({
           scrollTrigger: {
