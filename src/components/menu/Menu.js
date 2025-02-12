@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./menu.css";
 import {
   FaJava,
@@ -315,22 +315,25 @@ function Menu() {
   };
 
   const sendEmail = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault(); // e가 있을 때만 preventDefault 실행
+
+    console.log("Sending email with data:", formData);
 
     emailjs
       .send(
         "lucky92", // EmailJS에서 발급된 Service ID
-        "template_4zcacna", // EmailJS에서 발급된 Template ID
+        "template_f02m4h9", // EmailJS에서 발급된 Template ID
         formData,
         "1RNc-JVK21uORNll7" // EmailJS에서 발급된 Public Key
       )
       .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
+        (result) => {
+          console.log("Email sent successfully!", result.text);
           alert("이메일이 성공적으로 전송되었습니다!");
+          setFormData({ name: "", email: "", message: "" });
         },
         (error) => {
-          console.log("FAILED...", error);
+          console.error("Error sending email:", error.text);
           alert("이메일 전송에 실패했습니다.");
         }
       );
@@ -342,6 +345,17 @@ function Menu() {
       message: "",
     });
   };
+  useEffect(() => {
+    const handleMessage = (event) => {
+      console.log("Received message from iframe:", event.data);
+      if (event.data === "sendEmail") {
+        sendEmail(); // 최신 상태로 실행되도록 유지
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, [formData]);
   return (
     <div className="port-home">
       <form>
