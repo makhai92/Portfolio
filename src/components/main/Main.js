@@ -210,12 +210,6 @@ const Main = () => {
         { opacity: 0 },
         { opacity: 1, duration: 15, ease: "power1.inOut" },
         "+=5"
-      )
-      .fromTo(
-        ".main-content4 .button2",
-        { opacity: 0 },
-        { opacity: 1, duration: 15, ease: "power1.inOut" },
-        "+=5"
       );
 
     window.addEventListener("resize", ScrollTrigger.update);
