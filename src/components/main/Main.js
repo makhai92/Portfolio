@@ -1,225 +1,229 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { Link } from "react-router-dom";
 import "./Main.css";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const Main = () => {
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      ScrollTrigger.refresh();
-
-      // ✅ GSAP 플러그인 로드 확인 (콘솔에서 결과 확인)
+    if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
       console.log("✅ GSAP ScrollTrigger Loaded:", ScrollTrigger);
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".main-content",
-            start: "top top",
-            end: "90% top",
-            scrub: true,
-            pin: true,
-            pinSpacing: false,
-          },
-        })
-        .to(".title1", {
-          scale: 0.2,
-          duration: 1,
-          ease: "power2.inOut",
-        })
-        .to(".title1", {
-          x: "-180",
-          y: "-190",
-          duration: 1,
-          ease: "power2.inOut",
-        });
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".title-container",
-            start: "top top",
-            end: "800% top",
-            scrub: true,
-            pin: false,
-            pinSpacing: false,
-          },
-        })
-        .fromTo(
-          ".title2",
-          { x: "30vw", y: 0 },
-          { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
-          "+=13"
-        )
-        .to(
-          ".title2",
-          {
-            opacity: 1,
-            duration: 5,
-            ease: "power1.inOut",
-          },
-          "-=14"
-        )
-        .to(
-          ".title2",
-          {
+      // ✅ setTimeout을 사용하여 DOM이 완전히 렌더링된 후 실행
+      setTimeout(() => {
+        const targetElement = document.querySelector(".main-content");
+
+        if (!targetElement) {
+          console.warn("⚠️ GSAP ScrollTrigger Target Not Found: .main-content");
+          return;
+        }
+
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: ".main-content",
+              start: "top top",
+              end: "90% top",
+              scrub: true,
+              pin: true,
+              pinSpacing: false,
+            },
+          })
+          .to(".title1", {
+            scale: 0.2,
+            duration: 1,
+            ease: "power2.inOut",
+          })
+          .to(".title1", {
+            x: "-180",
+            y: "-190",
+            duration: 1,
+            ease: "power2.inOut",
+          });
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: ".title-container",
+              start: "top top",
+              end: "800% top",
+              scrub: true,
+              pin: false,
+              pinSpacing: false,
+            },
+          })
+          .fromTo(
+            ".title2",
+            { x: "30vw", y: 0 },
+            { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+            "+=13"
+          )
+          .to(
+            ".title2",
+            {
+              opacity: 1,
+              duration: 5,
+              ease: "power1.inOut",
+            },
+            "-=14"
+          )
+          .to(
+            ".title2",
+            {
+              opacity: 0,
+              duration: 5,
+              ease: "power1.inOut",
+            },
+            "-=10"
+          )
+          .fromTo(
+            ".title4",
+            { x: "30vw", y: 200 },
+            { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+            "-=15"
+          )
+          .to(
+            ".title4",
+            {
+              opacity: 1,
+              duration: 5,
+              ease: "power1.inOut",
+            },
+            "-=14"
+          )
+          .to(
+            ".title4",
+            {
+              opacity: 0,
+              duration: 5,
+              ease: "power1.inOut",
+            },
+            "-=10"
+          )
+          .fromTo(
+            ".title3",
+            { x: "-30vw", y: 100 },
+            { x: "100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+            "-=15"
+          )
+          .to(
+            ".title3",
+            {
+              opacity: 1,
+              duration: 5,
+              ease: "power1.inOut",
+            },
+            "-=14"
+          )
+          .to(
+            ".title3",
+            {
+              opacity: 0,
+              duration: 5,
+              ease: "power1.inOut",
+            },
+            "-=10"
+          )
+          .to(
+            ".title1",
+            {
+              x: "100vw",
+              opacity: 0,
+              duration: 6,
+              ease: "power1.inOut",
+            },
+            "-=10"
+          );
+
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: ".main-content2",
+              start: "top+=10% top",
+              end: "bottom+=50% top",
+              scrub: 2,
+              pin: true,
+              pinSpacing: true,
+            },
+          })
+          .fromTo(
+            ".main-content2 .logo1",
+            { opacity: 0 },
+            { opacity: 1, duration: 5, ease: "power2.inOut" }
+          )
+          .to(".main-content2 .logo1", {
             opacity: 0,
             duration: 5,
-            ease: "power1.inOut",
-          },
-          "-=10"
-        )
-        .fromTo(
-          ".title4",
-          { x: "30vw", y: 200 },
-          { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
-          "-=15"
-        )
-        .to(
-          ".title4",
-          {
-            opacity: 1,
-            duration: 5,
-            ease: "power1.inOut",
-          },
-          "-=14"
-        )
-        .to(
-          ".title4",
-          {
+            ease: "power2.inOut",
+          });
+
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: ".main-content3",
+              start: "top+=5% top",
+              end: "bottom+=70% top",
+              scrub: 2,
+              pin: true,
+              pinSpacing: true,
+            },
+          })
+          .fromTo(
+            ".main-content3 .title5",
+            { opacity: 0, scale: 1 },
+            { opacity: 1, scale: 1, duration: 4, ease: "power2.inOut" }
+          )
+          .to(".main-content3 .title5", {
+            scale: 10,
+            duration: 4,
+            ease: "power2.inOut",
+          })
+          .to(".main-content3 .title5", {
             opacity: 0,
-            duration: 5,
-            ease: "power1.inOut",
-          },
-          "-=10"
-        )
-        .fromTo(
-          ".title3",
-          { x: "-30vw", y: 100 },
-          { x: "100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
-          "-=15"
-        )
-        .to(
-          ".title3",
-          {
-            opacity: 1,
-            duration: 5,
-            ease: "power1.inOut",
-          },
-          "-=14"
-        )
-        .to(
-          ".title3",
-          {
-            opacity: 0,
-            duration: 5,
-            ease: "power1.inOut",
-          },
-          "-=10"
-        )
-        .to(
-          ".title1",
-          {
-            x: "100vw",
-            opacity: 0,
-            duration: 6,
-            ease: "power1.inOut",
-          },
-          "-=10"
-        );
+            duration: 4,
+            ease: "power2.inOut",
+          });
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".main-content2",
-            start: "top+=10% top",
-            end: "bottom+=50% top",
-            scrub: 2,
-            pin: true,
-            pinSpacing: true,
-          },
-        })
-        .fromTo(
-          ".main-content2 .logo1",
-          { opacity: 0 },
-          { opacity: 1, duration: 5, ease: "power2.inOut" }
-        )
-        .to(".main-content2 .logo1", {
-          opacity: 0,
-          duration: 5,
-          ease: "power2.inOut",
-        });
+        gsap.set(".main-content4", { opacity: 1 });
 
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".main-content3",
-            start: "top+=5% top",
-            end: "bottom+=70% top",
-            scrub: 2,
-            pin: true,
-            pinSpacing: true,
-          },
-        })
-        .fromTo(
-          ".main-content3 .title5",
-          { opacity: 0, scale: 1 },
-          { opacity: 1, scale: 1, duration: 4, ease: "power2.inOut" }
-        )
-        .to(".main-content3 .title5", {
-          scale: 10,
-          duration: 4,
-          ease: "power2.inOut",
-        })
-        .to(".main-content3 .title5", {
-          opacity: 0,
-          duration: 4,
-          ease: "power2.inOut",
-        });
+        gsap
+          .timeline({
+            scrollTrigger: {
+              trigger: ".main-content4",
+              start: "top+=50% center",
+              end: "+=155%",
+              scrub: 2,
+              pin: true,
+              pinSpacing: false,
+            },
+          })
+          .fromTo(
+            ".main-content4 .title6",
+            { opacity: 0 },
+            { opacity: 1, duration: 15, ease: "power1.inOut" }
+          )
+          .fromTo(
+            ".main-content4 .title7",
+            { opacity: 0 },
+            { opacity: 1, duration: 15, ease: "power1.inOut" },
+            "+=15"
+          )
+          .fromTo(
+            ".main-content4 .button1",
+            { opacity: 0 },
+            { opacity: 1, duration: 15, ease: "power1.inOut" },
+            "+=5"
+          );
 
-      gsap.set(".main-content4", { opacity: 1 });
-
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".main-content4",
-            start: "top+=50% center",
-            end: "+=155%",
-            scrub: 2,
-            pin: true,
-            pinSpacing: false,
-          },
-        })
-        .fromTo(
-          ".main-content4 .title6",
-          { opacity: 0 },
-          { opacity: 1, duration: 15, ease: "power1.inOut" }
-        )
-        .fromTo(
-          ".main-content4 .title7",
-          { opacity: 0 },
-          { opacity: 1, duration: 15, ease: "power1.inOut" },
-          "+=15"
-        )
-        .fromTo(
-          ".main-content4 .button1",
-          { opacity: 0 },
-          { opacity: 1, duration: 15, ease: "power1.inOut" },
-          "+=5"
-        );
-
-      ScrollTrigger.refresh();
-    });
+        ScrollTrigger.refresh();
+      }, 500); // ✅ 500ms 후 실행 (DOM 렌더링 완료 보장)
+    }
 
     const handleResize = () => ScrollTrigger.update();
     window.addEventListener("resize", handleResize);
-
-    return () => {
-      ctx.revert(); // ✅ GSAP 애니메이션 정리
-      window.removeEventListener("resize", handleResize); // ✅ 리스너 정리
-    };
   }, []);
   useEffect(() => {
     const videoElement = document.getElementById("background-video");
