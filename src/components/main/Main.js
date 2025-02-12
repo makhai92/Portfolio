@@ -9,207 +9,228 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const Main = () => {
   useEffect(() => {
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".main-content",
-          start: "top top",
-          end: "90% top",
-          scrub: true,
-          pin: true,
-          pinSpacing: false,
-        },
-      })
-      .to(".title1", {
-        scale: 0.2,
-        duration: 1,
-        ease: "power2.inOut",
-      })
-      .to(".title1", {
-        x: "-180",
-        y: "-190",
-        duration: 1,
-        ease: "power2.inOut",
-      });
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".title-container",
-          start: "top top",
-          end: "800% top",
-          scrub: true,
-          pin: false,
-          pinSpacing: false,
-        },
-      })
-      .fromTo(
-        ".title2",
-        { x: "30vw", y: 0 },
-        { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
-        "+=13"
-      )
-      .to(
-        ".title2",
+    let ctx = gsap.context(() => {
+      // ✅ GSAP 적용 전까지 요소 숨기기 (FOUT 방지)
+      gsap.set(
+        [
+          ".title1",
+          ".title2",
+          ".title3",
+          ".title4",
+          ".logo1",
+          ".title5",
+          ".title6",
+          ".title7",
+          ".button1",
+        ],
         {
-          opacity: 1,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=14"
-      )
-      .to(
-        ".title2",
-        {
-          opacity: 0,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=10"
-      )
-      .fromTo(
-        ".title4",
-        { x: "30vw", y: 200 },
-        { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
-        "-=15"
-      )
-      .to(
-        ".title4",
-        {
-          opacity: 1,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=14"
-      )
-      .to(
-        ".title4",
-        {
-          opacity: 0,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=10"
-      )
-      .fromTo(
-        ".title3",
-        { x: "-30vw", y: 100 },
-        { x: "100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
-        "-=15"
-      )
-      .to(
-        ".title3",
-        {
-          opacity: 1,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=14"
-      )
-      .to(
-        ".title3",
-        {
-          opacity: 0,
-          duration: 5,
-          ease: "power1.inOut",
-        },
-        "-=10"
-      )
-      .to(
-        ".title1",
-        {
-          x: "100vw",
-          opacity: 0,
-          duration: 6,
-          ease: "power1.inOut",
-        },
-        "-=10"
+          visibility: "hidden",
+        }
       );
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".main-content",
+            start: "top top",
+            end: "90% top",
+            scrub: true,
+            pin: true,
+            pinSpacing: false,
+          },
+        })
+        .to(".title1", {
+          scale: 0.2,
+          duration: 1,
+          ease: "power2.inOut",
+          immediateRender: false,
+        })
+        .to(".title1", {
+          x: "-180",
+          y: "-190",
+          duration: 1,
+          ease: "power2.inOut",
+        });
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".title-container",
+            start: "top top",
+            end: "800% top",
+            scrub: true,
+            pin: false,
+            pinSpacing: false,
+          },
+        })
+        .fromTo(
+          ".title2",
+          { x: "30vw", y: 0 },
+          { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+          "+=13"
+        )
+        .to(
+          ".title2",
+          {
+            opacity: 1,
+            duration: 5,
+            ease: "power1.inOut",
+          },
+          "-=14"
+        )
+        .to(
+          ".title2",
+          {
+            opacity: 0,
+            duration: 5,
+            ease: "power1.inOut",
+          },
+          "-=10"
+        )
+        .fromTo(
+          ".title4",
+          { x: "30vw", y: 200 },
+          { x: "-100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+          "-=15"
+        )
+        .to(
+          ".title4",
+          {
+            opacity: 1,
+            duration: 5,
+            ease: "power1.inOut",
+          },
+          "-=14"
+        )
+        .to(
+          ".title4",
+          {
+            opacity: 0,
+            duration: 5,
+            ease: "power1.inOut",
+          },
+          "-=10"
+        )
+        .fromTo(
+          ".title3",
+          { x: "-30vw", y: 100 },
+          { x: "100vw", opacity: 1, duration: 15, ease: "power1.inOut" },
+          "-=15"
+        )
+        .to(
+          ".title3",
+          {
+            opacity: 1,
+            duration: 5,
+            ease: "power1.inOut",
+          },
+          "-=14"
+        )
+        .to(
+          ".title3",
+          {
+            opacity: 0,
+            duration: 5,
+            ease: "power1.inOut",
+          },
+          "-=10"
+        )
+        .to(
+          ".title1",
+          {
+            x: "100vw",
+            opacity: 0,
+            duration: 6,
+            ease: "power1.inOut",
+          },
+          "-=10"
+        );
 
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".main-content2",
-          start: "top+=10% top",
-          end: "bottom+=50% top",
-          scrub: 2,
-          pin: true,
-          pinSpacing: true,
-        },
-      })
-      .fromTo(
-        ".main-content2 .logo1",
-        { opacity: 0 },
-        { opacity: 1, duration: 5, ease: "power2.inOut" }
-      )
-      .to(".main-content2 .logo1", {
-        opacity: 0,
-        duration: 5,
-        ease: "power2.inOut",
-      });
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".main-content2",
+            start: "top+=10% top",
+            end: "bottom+=50% top",
+            scrub: 2,
+            pin: true,
+            pinSpacing: true,
+          },
+        })
+        .fromTo(
+          ".main-content2 .logo1",
+          { opacity: 0 },
+          { opacity: 1, duration: 5, ease: "power2.inOut" }
+        )
+        .to(".main-content2 .logo1", {
+          opacity: 0,
+          duration: 5,
+          ease: "power2.inOut",
+        });
 
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".main-content3",
-          start: "top+=5% top",
-          end: "bottom+=70% top",
-          scrub: 2,
-          pin: true,
-          pinSpacing: true,
-        },
-      })
-      .fromTo(
-        ".main-content3 .title5",
-        { opacity: 0, scale: 1 },
-        { opacity: 1, scale: 1, duration: 4, ease: "power2.inOut" }
-      )
-      .to(".main-content3 .title5", {
-        scale: 10,
-        duration: 4,
-        ease: "power2.inOut",
-      })
-      .to(".main-content3 .title5", {
-        opacity: 0,
-        duration: 4,
-        ease: "power2.inOut",
-      });
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".main-content3",
+            start: "top+=5% top",
+            end: "bottom+=70% top",
+            scrub: 2,
+            pin: true,
+            pinSpacing: true,
+          },
+        })
+        .fromTo(
+          ".main-content3 .title5",
+          { opacity: 0, scale: 1 },
+          { opacity: 1, scale: 1, duration: 4, ease: "power2.inOut" }
+        )
+        .to(".main-content3 .title5", {
+          scale: 10,
+          duration: 4,
+          ease: "power2.inOut",
+        })
+        .to(".main-content3 .title5", {
+          opacity: 0,
+          duration: 4,
+          ease: "power2.inOut",
+        });
 
-    gsap.set(".main-content4", { opacity: 1 });
+      gsap.set(".main-content4", { opacity: 1 });
 
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".main-content4",
-          start: "top+=50% center",
-          end: "+=155%",
-          scrub: 2,
-          pin: true,
-          pinSpacing: false,
-        },
-      })
-      .fromTo(
-        ".main-content4 .title6",
-        { opacity: 0 },
-        { opacity: 1, duration: 15, ease: "power1.inOut" }
-      )
-      .fromTo(
-        ".main-content4 .title7",
-        { opacity: 0 },
-        { opacity: 1, duration: 15, ease: "power1.inOut" },
-        "+=15"
-      )
-      .fromTo(
-        ".main-content4 .button1",
-        { opacity: 0 },
-        { opacity: 1, duration: 15, ease: "power1.inOut" },
-        "+=5"
-      )
-      .fromTo(
-        ".main-content4 .button2",
-        { opacity: 0 },
-        { opacity: 1, duration: 15, ease: "power1.inOut" },
-        "+=5"
-      );
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".main-content4",
+            start: "top+=50% center",
+            end: "+=155%",
+            scrub: 2,
+            pin: true,
+            pinSpacing: false,
+          },
+        })
+        .fromTo(
+          ".main-content4 .title6",
+          { opacity: 0 },
+          { opacity: 1, duration: 15, ease: "power1.inOut" }
+        )
+        .fromTo(
+          ".main-content4 .title7",
+          { opacity: 0 },
+          { opacity: 1, duration: 15, ease: "power1.inOut" },
+          "+=15"
+        )
+        .fromTo(
+          ".main-content4 .button1",
+          { opacity: 0 },
+          { opacity: 1, duration: 15, ease: "power1.inOut" },
+          "+=5"
+        )
+        .fromTo(
+          ".main-content4 .button2",
+          { opacity: 0 },
+          { opacity: 1, duration: 15, ease: "power1.inOut" },
+          "+=5"
+        );
+      ScrollTrigger.refresh();
+    });
 
     window.addEventListener("resize", ScrollTrigger.update);
     const videoElement = document.getElementById("background-video");
@@ -236,6 +257,8 @@ const Main = () => {
     });
     playVideo();
     // 하단 고정된 화살표 버튼 클릭 시 즉시 맨 아래로 이동
+
+    return () => ctx.revert();
   }, []);
   const handleArrowClick = (e) => {
     e.preventDefault();
