@@ -1,203 +1,137 @@
-/* 메인 콘텐츠 설정 */
-
-.main-content,
-.main-content2,
-.main-content3,
+/* Main.css */
 .main-content4 {
-  margin: 0; /* 각 섹션의 상하 간격을 제거 */
-  padding: 0; /* 패딩도 제거하여 공백 줄임 */
+  display: block; /* 콘텐츠가 안 뜨던 문제 해결 */
+  opacity: 0;
+  animation: revealContent 8s linear forwards;
+  z-index: 10; /* z-index 조정 */
 }
-.main-content {
-  width: 100%;
-  height: 700vh; /* 스크롤을 위한 충분한 높이로 설정 */
-  position: relative;
-  overflow: hidden;
-}
-
-/* 타이틀 컨테이너 설정 */
-.title-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-/* 첫 번째 타이틀 스타일 (title1) */
-.title1 {
-  display: inline-block;
-  color: #fff;
-  font-weight: bold;
-  font-size: 27rem;
-  position: absolute;
-  z-index: 10;
-  white-space: nowrap;
-}
-
-/* 두 번째, 세 번째, 네 번째 타이틀 스타일링 (title2, title3, title4) */
-.title2,
-.title3,
-.title4 {
-  display: inline-block;
-  color: #fff;
-  font-weight: bold;
-  font-size: 7rem;
+.main-content4 .content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 5;
-  opacity: 0;
-  white-space: nowrap;
+  text-align: center;
+  width: 80%;
+  z-index: 10; /* 버튼보다 위에 위치하도록 z-index 수정 */
+  pointer-events: auto; /* 클릭 이벤트 허용 */
 }
-
-/* 메인 콘텐츠2 설정 */
-.main-content2 {
-  width: 100%;
-  height: 115vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  opacity: 1;
-  z-index: 15;
-}
-
-/* main-content2 안의 텍스트 스타일 */
-.main-content2 .logo1 {
-  font-size: 5rem;
+.title1 {
+  font-size: 2rem;
+  font-weight: bold;
   color: #fff;
+  text-shadow: 0 0 10px #0fff;
+  margin-bottom: 1rem;
 }
 
-/* main-content3 스타일 */
-.main-content3 {
-  width: 100%;
-  height: 100vh; /* 화면 전체 높이 */
+.title2 {
+  font-size: 1.5rem;
+  color: #fff;
+  text-shadow: 0 0 8px #0fff;
+  line-height: 1.6;
+}
+
+.matrix-container {
+  background-color: #000;
+  height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   position: relative;
+}
+
+.matrix-enter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.matrix-enter-body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.matrix-tv-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 15%;
+}
+
+.matrix-glow {
+  position: absolute;
+  top: 50%;
+  left: calc(45% + 5%); /* 글로우도 동일하게 오른쪽 이동 */
+  transform: translate(-50%, -50%);
+  width: 90%; /* 이미지 크기에 맞춤 */
+  height: 90%; /* 이미지 크기에 맞춤 */
+  border-radius: 30px; /* 부드러운 곡선 */
+  box-shadow: 0 0 120px 40px rgba(0, 255, 0, 0.5); /* 더 강하고 부드러운 매트릭스 빛 */
+  z-index: 1;
+}
+
+#tv {
+  position: relative;
+  z-index: 1000;
+  width: 100%; /* 이미지 크기 맞춤 */
+  height: auto;
+  filter: sepia(0.5) contrast(0.8) brightness(0.9) blur(1px) grayscale(0.3);
+  pointer-events: none; /* 마우스 이벤트 무시 */
+  user-drag: none; /* 드래그 방지 */
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
+}
+
+.matrix-iframe {
+  position: absolute;
+  top: 7%;
+  left: 9.5%;
+  width: 63%;
+  height: 80%;
+  border-radius: 30px;
+  z-index: 1;
   overflow: hidden;
 }
-
-.main-content3 .title5 {
-  font-size: 7rem; /* 기본 글씨 크기 */
-  color: #fff; /* 글씨 색은 흰색 */
-  opacity: 0; /* 애니메이션 시작 전까지 투명하게 설정 */
-}
-
-/* 메인 콘텐츠4 설정 */
-.main-content4 {
-  width: 100%;
-  height: 400vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  opacity: 1; /* 애니메이션 전까지 투명하게 */
-}
-
-.main-content4 .content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.main-content4 .title6 {
-  font-size: 2rem;
-  color: #fff;
-  opacity: 0; /* 애니메이션 시작 전까지 투명하게 설정 */
-  margin-bottom: 40px;
-}
-.main-content4 .title7 {
-  font-size: 2rem;
-  color: #fff;
-  opacity: 0; /* 애니메이션 시작 전까지 투명하게 설정 */
-  margin-bottom: 40px;
-}
-
-.main-content4 .arrow-icon {
+/* 브라운관 TV 수직 스캔 라인 효과 */
+.scanlines {
   position: absolute;
-  right: 20px; /* 오른쪽 끝에서 20px 떨어진 위치 */
-  top: 50%; /* 수직 중앙 정렬 */
-  transform: translateY(-50%); /* 정확한 중앙 배치를 위해 translate 사용 */
-  font-size: 1.5rem;
-  color: #fff; /* 화살표 색상 흰색 */
+  top: 10%;
+  left: 4%;
+  width: 80%;
+  height: 5%;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 100%,
+    transparent 2px,
+    transparent 4px
+  );
+  animation: scanlineMove 7s linear infinite;
+  z-index: 5;
 }
 
-.arrow-down {
-  position: fixed;
-  bottom: 4rem; /* 화면 하단에서 20px 위 */
-  left: 50.5%; /* 화면의 가로 중앙에 위치 */
-  transform: translateX(-50%); /* 정확한 가로 중앙 정렬 */
-  z-index: 100; /* 다른 요소 위에 위치 */
+@keyframes scanlineMove {
+  from {
+    transform: translateY(-200%);
+  }
+  to {
+    transform: translateY(1500%);
+  }
 }
-/* 하단 고정 버튼 스타일 */
-.arrow-down span {
-  display: block;
-  width: 1.5em;
-  height: 1.5em;
-  border-bottom: 1px solid #fff;
-  border-right: 1px solid #fff;
-  transform: rotate(45deg);
-  margin: -10px;
-  animation: animate-arrows 2s infinite;
-}
-@keyframes animate-arrows {
+@keyframes revealContent {
   0% {
     opacity: 0;
-    transform: rotate(45deg) translate(-1.5em, -1.5em);
   }
-  50% {
-    opacity: 1;
+  70% {
+    opacity: 0;
   }
   100% {
-    opacity: 0;
-    transform: rotate(45deg) translate(1.5em, 1.5em);
+    opacity: 1;
   }
 }
-.arrow-down span:nth-child(1) {
-  animation-delay: -0.2s;
-}
-.arrow-down span:nth-child(2) {
-  animation-delay: -0.4s;
-}
-.arrow-down span:nth-child(3) {
-  animation-delay: -0.6s;
-}
 
-/* 배경 비디오 스타일 */
-.video-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.video-background video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* 어두운 반투명 오버레이 */
-.video-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* 검은색 투명도 50% */
-  z-index: -1; /* 콘텐츠보다 뒤에 위치 */
-}
 /* 버튼 */
 .main-body {
   color: #ccc;

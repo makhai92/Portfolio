@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matrix Code Simulator</title>
+    <style>
+      ma * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: black;
+        overflow: hidden;
+      }
+
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="matrixCanvas"></canvas>
+    <script>
+      const canvas = document.getElementById("matrixCanvas");
+      const ctx = canvas.getContext("2d");
+
+      // Setting canvas to fullscreen
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      // Characters for the Matrix effect
+      const characters =
+        "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヰヱヲ0123456789abcdefghijklmnopqrstuvwxyz";
+
+      // Split characters into array
+      const matrixChars = characters.split("");
+
+      // Quantum affirmation words
+      const affirmations = [
+        "energy",
+        "vibration",
+        "frequency",
+        "quantum",
+        "entanglement",
+        "wave",
+        "particle",
+        "field",
+        "resonance",
+        "harmony",
+        "synchronicity",
+        "consciousness",
+        "awareness",
+        "potential",
+        "infinity",
+        "universe",
+        "cosmos",
+        "dimension",
+        "reality",
+        "existence",
+        "spirit",
+        "mind",
+        "soul",
+        "essence",
+        "presence",
+        "being",
+        "light",
+        "love",
+        "peace",
+        "joy",
+        "abundance",
+        "clarity",
+        "focus",
+        "intention",
+        "manifestation",
+        "creation",
+        "transformation",
+        "evolution",
+        "growth",
+        "expansion",
+        "connection",
+        "unity",
+        "oneness",
+        "balance",
+        "equilibrium",
+        "flow",
+        "alignment",
+        "purpose",
+        "destiny",
+        "journey",
+        "truth",
+        "wisdom",
+        "knowledge",
+        "insight",
+        "intuition",
+        "guidance",
+        "support",
+        "trust",
+        "faith",
+        "belief",
+        "gratitude",
+        "appreciation",
+        "compassion",
+        "kindness",
+        "empathy",
+        "understanding",
+        "acceptance",
+        "forgiveness",
+        "healing",
+        "wholeness",
+        "freedom",
+        "liberation",
+        "sovereignty",
+        "power",
+        "strength",
+        "courage",
+        "confidence",
+        "determination",
+        "will",
+        "resolve",
+        "creativity",
+        "imagination",
+        "inspiration",
+        "innovation",
+        "vision",
+        "dream",
+        "aspiration",
+        "goal",
+        "achievement",
+        "success",
+      ];
+
+      // Font size and columns setup
+      const fontSize = 16;
+      const columns = canvas.width / fontSize;
+
+      // Array to store the y-position of the falling characters
+      const drops = Array(Math.floor(columns)).fill(1);
+
+      // State to track clicks
+      let isMouseDown = false;
+      let visibleAffirmation = null;
+      let visibleAffirmationPosition = { x: 0, y: 0 };
+      let alpha = 0;
+      let interval;
+
+      // Matrix effect function
+      function drawMatrix() {
+        // Black background with a slight transparent alpha for fade effect
+        ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; // Faster fading effect
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Set the text color and font
+        ctx.font = fontSize + "px monospace";
+
+        // Loop over the drops array
+        drops.forEach((y, index) => {
+          // Randomly choose between a character and an affirmation word
+          const isAffirmation = Math.random() > 0.99; // Adjust probability as needed
+          const text = isAffirmation
+            ? affirmations[
+                Math.floor(Math.random() * affirmations.length)
+              ].charAt(0)
+            : matrixChars[Math.floor(Math.random() * matrixChars.length)];
+
+          // Set the color for the text
+          if (isAffirmation) {
+            ctx.fillStyle = "#00FF00"; // Brighter green for affirmations
+          } else {
+            ctx.fillStyle = "#007700"; // Dimmer green for regular characters
+          }
+
+          // Draw the character or affirmation word at the current drop position (x, y)
+          ctx.fillText(text, index * fontSize, y * fontSize);
+
+          // Randomly reset drop position when it goes off the screen
+          if (y * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[index] = 0;
+          }
+
+          // Increment the y-position for the next frame
+          drops[index]++;
+        });
+
+        // Draw the visible affirmation if it exists
+        if (visibleAffirmation) {
+          ctx.fillStyle = `rgba(0, 255, 0, ${alpha})`;
+          ctx.font = `${fontSize}px monospace`;
+          ctx.fillText(
+            visibleAffirmation,
+            visibleAffirmationPosition.x,
+            visibleAffirmationPosition.y
+          );
+        }
+      }
+
+      // Run the drawMatrix function at an interval
+      interval = setInterval(drawMatrix, 50);
+
+      // Adjust the canvas size when window is resized
+      window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+
+      // Handle mouse down events
+      canvas.addEventListener("mousedown", () => {
+        isMouseDown = true;
+
+        // Pause the rain effect
+        clearInterval(interval);
+
+        // Choose a random affirmation to display
+        const affirmation =
+          affirmations[Math.floor(Math.random() * affirmations.length)];
+
+        // Find a random position for the affirmation
+        const x = Math.floor(Math.random() * columns) * fontSize;
+        const y =
+          Math.floor(Math.random() * (canvas.height / fontSize)) * fontSize;
+
+        // Set the visible affirmation and its position
+        visibleAffirmation = affirmation;
+        visibleAffirmationPosition = { x, y };
+
+        // Start the fade-in effect
+        alpha = 0;
+        const fadeIn = setInterval(() => {
+          if (alpha < 1) {
+            alpha += 0.05;
+          } else {
+            clearInterval(fadeIn);
+          }
+        }, 50);
+      });
+
+      // Handle mouse up events
+      canvas.addEventListener("mouseup", () => {
+        isMouseDown = false;
+
+        // Start the fade-out effect
+        const fadeOut = setInterval(() => {
+          if (alpha > 0) {
+            alpha -= 0.1; // Faster fade-out effect
+          } else {
+            clearInterval(fadeOut);
+            visibleAffirmation = null;
+
+            // Resume the rain effect
+            interval = setInterval(drawMatrix, 50);
+          }
+        }, 50);
+      });
+
+      // Adjust the canvas size when window is resized
+      window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    </script>
+  </body>
+</html>
