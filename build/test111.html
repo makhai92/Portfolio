@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../normalize.css" />
   </head>
   <body>
-    <button>
+    <button id="sendEmailButton">
       <span class="canvas-container">
         <span class="canvas-wrap">
           <canvas></canvas>
@@ -19,6 +19,20 @@
 
     <!-- GSAP 라이브러리를 먼저 로드합니다. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+    <!-- 버튼 클릭 시 부모 창에 메시지 전달 -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const sendButton = document.getElementById("sendEmailButton");
+        if (sendButton) {
+          sendButton.addEventListener("click", function () {
+            console.log("Button clicked! Sending message to parent...");
+            window.parent.postMessage("sendEmail", "*");
+          });
+        } else {
+          console.error("sendEmailButton not found!");
+        }
+      });
+    </script>
     <!-- GSAP 로드 후 test111.js 파일을 로드합니다. -->
     <script src="./test111.js"></script>
   </body>

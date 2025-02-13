@@ -67,27 +67,27 @@ function Menu() {
       ],
       images: [
         {
-          src: "/portfolio/img/caloriebus_logo.png",
+          src: "/img/caloriebus_logo.png",
           i: 2,
           j: 0,
         },
         {
-          src: "/portfolio/img/calorie_main.png",
+          src: "/img/calorie_main.png",
           i: 1,
           j: 0,
         },
         {
-          src: "/portfolio/img/calorie_news.png",
+          src: "/img/calorie_news.png",
           i: 0,
           j: 0,
         },
         {
-          src: "/portfolio/img/calorie_check.png",
+          src: "/img/calorie_check.png",
           i: -1,
           j: 0,
         },
         {
-          src: "/portfolio/img/calorie_rullet.png",
+          src: "/img/calorie_rullet.png",
           i: -2,
           j: 0,
         },
@@ -140,42 +140,42 @@ function Menu() {
       ],
       images: [
         {
-          src: "/portfolio/img/SAS_logo.png",
+          src: "/img/SAS_logo.png",
           i: 2,
           j: 0,
         },
         {
-          src: "/portfolio/img/sas_main.gif",
+          src: "/img/sas_main.gif",
           i: 1,
           j: 0,
         },
         {
-          src: "/portfolio/img/sas_usermain.gif",
+          src: "/img/sas_usermain.gif",
           i: 0,
           j: 0,
         },
         {
-          src: "/portfolio/img/sas_ownermain.png",
+          src: "/img/sas_ownermain.png",
           i: -1,
           j: 0,
         },
         {
-          src: "/portfolio/img/sas_ownerhome.png",
+          src: "/img/sas_ownerhome.png",
           i: -2,
           j: 0,
         },
         {
-          src: "/portfolio/img/sas_review.png",
+          src: "/img/sas_review.png",
           i: -3,
           j: 0,
         },
         {
-          src: "/portfolio/img/sas_statistics.png",
+          src: "/img/sas_statistics.png",
           i: -4,
           j: 0,
         },
         {
-          src: "/portfolio/img/sas_reserved.png",
+          src: "/img/sas_reserved.png",
           i: -5,
           j: 0,
         },
@@ -200,12 +200,12 @@ function Menu() {
       ],
       images: [
         {
-          src: "/portfolio/img/GooGoo.jpeg",
+          src: "/img/GooGoo.jpeg",
           i: 2,
           j: 0,
         },
         {
-          src: "/portfolio/img/GooGoo_randing.gif",
+          src: "/img/GooGoo_randing.gif",
           i: 1,
           j: 1,
         },
