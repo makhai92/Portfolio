@@ -479,7 +479,7 @@ function Menu() {
                   <li>
                     <a href="#">
                       <img
-                        src="/img/ajax.png"
+                        src="https://cdn-icons-png.flaticon.com/512/1183/1183741.png"
                         alt="Ajax Logo"
                         className="ajax-icon"
                       />
@@ -506,7 +506,7 @@ function Menu() {
                   <li>
                     <a href="#">
                       <img
-                        src="/img/servlet.png"
+                        src="https://cdn-icons-png.flaticon.com/128/28/28968.png"
                         alt="servlet Logo"
                         className="servlet-icon"
                       />
