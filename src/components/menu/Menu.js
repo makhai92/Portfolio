@@ -145,12 +145,12 @@ function Menu() {
           j: 0,
         },
         {
-          src: "https://drive.google.com/file/d/1co7ijUItgWsx49QJ4VGyt0MpoAwh7afq/view",
+          src: "/img/sas_main.gif",
           i: 1,
           j: 0,
         },
         {
-          src: "https://drive.google.com/file/d/1HdQxSBf7WhcDE6cGbLtouyexYsJKZWTY/view",
+          src: "/img/sas_usermain.gif",
           i: 0,
           j: 0,
         },
@@ -205,7 +205,7 @@ function Menu() {
           j: 0,
         },
         {
-          src: "https://drive.google.com/file/d/19E_8E4ykemXXixCdkOwZk243kYcEYD2C/view",
+          src: "/img/GooGoo_randing.gif",
           i: 1,
           j: 1,
         },
