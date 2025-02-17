@@ -9,7 +9,12 @@ const Main = () => {
         <div className="matrix-enter-body">
           <div className="matrix-tv-container">
             <div className="matrix-glow"></div>
-            <img id="tv" src="/img/tv.png" alt="Old TV" draggable="false" />
+            <img
+              id="tv"
+              src="/portfolio/img/tv.png"
+              alt="Old TV"
+              draggable="false"
+            />
             <iframe
               src={`${process.env.PUBLIC_URL}/matrixcode.html`}
               title="Matrix Code"

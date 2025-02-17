@@ -68,27 +68,27 @@ function Menu() {
       ],
       images: [
         {
-          src: "/img/caloriebus_logo.png",
+          src: "/portfolio/img/caloriebus_logo.png",
           i: 2,
           j: 0,
         },
         {
-          src: "/img/calorie_main.png",
+          src: "/portfolio/img/calorie_main.png",
           i: 1,
           j: 0,
         },
         {
-          src: "/img/calorie_news.png",
+          src: "/portfolio/img/calorie_news.png",
           i: 0,
           j: 0,
         },
         {
-          src: "/img/calorie_check.png",
+          src: "/portfolio/img/calorie_check.png",
           i: -1,
           j: 0,
         },
         {
-          src: "/img/calorie_rullet.png",
+          src: "/portfolio/img/calorie_rullet.png",
           i: -2,
           j: 0,
         },
@@ -142,42 +142,42 @@ function Menu() {
       ],
       images: [
         {
-          src: "/img/SAS_logo.png",
+          src: "/portfolio/img/SAS_logo.png",
           i: 2,
           j: 0,
         },
         {
-          src: "/img/sas_main.gif",
+          src: "/portfolio/img/sas_main.gif",
           i: 1,
           j: 0,
         },
         {
-          src: "/img/sas_usermain.gif",
+          src: "/portfolio/img/sas_usermain.gif",
           i: 0,
           j: 0,
         },
         {
-          src: "/img/sas_ownermain.png",
+          src: "/portfolio/img/sas_ownermain.png",
           i: -1,
           j: 0,
         },
         {
-          src: "/img/sas_ownerhome.png",
+          src: "/portfolio/img/sas_ownerhome.png",
           i: -2,
           j: 0,
         },
         {
-          src: "/img/sas_review.png",
+          src: "/portfolio/img/sas_review.png",
           i: -3,
           j: 0,
         },
         {
-          src: "/img/sas_statistics.png",
+          src: "/portfolio/img/sas_statistics.png",
           i: -4,
           j: 0,
         },
         {
-          src: "/img/sas_reserved.png",
+          src: "/portfolio/img/sas_reserved.png",
           i: -5,
           j: 0,
         },
@@ -203,12 +203,12 @@ function Menu() {
       ],
       images: [
         {
-          src: "/img/GooGoo.jpeg",
+          src: "/portfolio/img/GooGoo.jpeg",
           i: 2,
           j: 0,
         },
         {
-          src: "/img/GooGoo_randing.gif",
+          src: "/portfolio/img/GooGoo_randing.gif",
           i: 1,
           j: 1,
         },
@@ -221,40 +221,40 @@ function Menu() {
       url: "https://main--yangsprotfolio2.netlify.app/",
       content: ["Home", "About", "Skills", "Project", "Contact"],
       description: [
-        "메인페이지설명",
-        "로그인설명",
-        "게시판설명",
-        "TODOLIST설명",
-        "관리자설정설명",
+        "Home: 3D도넛으로 광원효과를 내며 움직이고 메뉴를 클릭하면 숨겨져있는 다른메뉴들이 나오고 원하는목차로 들어가는 기능<br/><br/>",
+        "About Me: 간단한 자기소개와 뒤 배경엔 마우스로 움직일수있는 3D배경 적용.<br/><br/>",
+        "Skills: 3D구체에 사용가능한 기술들을 적어 자동으로 회전하며 마우스 움직임을 따라감<br/><br/>",
+        "Project: 여태까지 만들었던 프로젝트들을 3D로 볼수있게 만들고 누르면 해당 프로젝트로 이동가능<br/><br/>",
+        "Contact: 편지로 디자인한 메일을 제작, 누르면 안에 편지지를 작성가능하고 보내고나면 알림메세지와 메일다시작성 가능<br/><br/>",
       ],
       images: [
         {
-          src: "/img/Portfolio2logo.png",
+          src: "/portfolio/img/Portfolio2logo.png",
           i: 2,
           j: 0,
         },
         {
-          src: "/img/Portfolio2.gif",
+          src: "/portfolio/img/Portfolio2.gif",
           i: 1,
           j: 0,
         },
         {
-          src: "/img/about.png",
+          src: "/portfolio/img/about.png",
           i: 0,
           j: 0,
         },
         {
-          src: "/img/skills.png",
+          src: "/portfolio/img/skills.png",
           i: -1,
           j: 0,
         },
         {
-          src: "https://i.ibb.co/gm7Cv1d/pexels-ivan-samkov-6968810.jpg",
+          src: "/portfolio/img/project.png",
           i: -2,
           j: 0,
         },
         {
-          src: "https://i.ibb.co/gm7Cv1d/pexels-ivan-samkov-6968810.jpg",
+          src: "/portfolio/img/contact.png",
           i: -2,
           j: 0,
         },
@@ -266,41 +266,35 @@ function Menu() {
       title: "Noble-제작중",
       url: "https://github.com/makhai92",
       content: ["메인페이지", "로그인", "게시판", "TODOLIST", "관리자설정"],
-      description: [
-        "메인페이지설명",
-        "로그인설명",
-        "게시판설명",
-        "TODOLIST설명",
-        "관리자설정설명",
-      ],
+      description: ["제작중", "제작중", "제작중", "제작중", "제작중"],
       images: [
         {
-          src: "https://i.ibb.co/gm7Cv1d/pexels-ivan-samkov-6968810.jpg",
+          src: "/portfolio/img/work in progress.png",
           i: 2,
           j: 0,
         },
         {
-          src: "https://i.ibb.co/gm7Cv1d/pexels-ivan-samkov-6968810.jpg",
+          src: "/portfolio/img/work in progress.png",
           i: 1,
           j: 1,
         },
         {
-          src: "https://i.ibb.co/gm7Cv1d/pexels-ivan-samkov-6968810.jpg",
+          src: "/portfolio/img/work in progress.png",
           i: 0,
           j: 2,
         },
         {
-          src: "https://i.ibb.co/gm7Cv1d/pexels-ivan-samkov-6968810.jpg",
+          src: "/portfolio/img/work in progress.png",
           i: -1,
           j: 3,
         },
         {
-          src: "https://i.ibb.co/gm7Cv1d/pexels-ivan-samkov-6968810.jpg",
+          src: "/portfolio/img/work in progress.png",
           i: -2,
           j: 4,
         },
         {
-          src: "https://i.ibb.co/gm7Cv1d/pexels-ivan-samkov-6968810.jpg",
+          src: "/portfolio/img/work in progress.png",
           i: -3,
           j: 4,
         },
@@ -441,7 +435,7 @@ function Menu() {
               </p>
               <div className="profile-section">
                 <div className="profile-image">
-                  <img src="img/profile.jpeg" alt="Profile" />
+                  <img src="/portfolio/img/profile.jpeg" alt="Profile" />
                 </div>
                 <div className="info">
                   <p>
