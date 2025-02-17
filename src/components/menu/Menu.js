@@ -196,7 +196,7 @@ function Menu() {
     {
       id: 3,
       title: "GooGoo RandingPage",
-      url: "https://github.com/makhai92/GooGoo-Landing",
+      url: "https://googoo-landing.netlify.app/",
       content: ["메인페이지"],
       description: [
         "메인페이지 메인페이지 구조 설계 - 메인페이지 영역 잡기/메인페이지 디자인 ",
