@@ -1125,8 +1125,15 @@ svg {
   margin-left: -55%;
   margin-top: -8%;
   font-size: 2.5rem; /* 폰트 크기 조정 */
+  cursor: pointer;
+  color: #00ff00;
+  text-shadow: 0 0 15px #00ff00, 0 0 1px rgba(0, 255, 0, 1);
+  transition: color 0.5s, text-shadow 0.5s;
 }
-
+.project-title:hover {
+  color: #0f0;
+  text-shadow: 0 0 30px #00ff00, 5px 5px 5px rgba(0, 255, 0, 3);
+}
 .project-content {
   margin: 0 auto;
   margin-left: -55%;
@@ -1320,7 +1327,26 @@ svg {
   top: 90%;
   color: #a78bfa;
 }
-
+.label-Home {
+  top: 7%;
+  color: #f28b82;
+}
+.label-About {
+  top: 24%;
+  color: #8ab4f8;
+}
+.label-Skills {
+  top: 41%;
+  color: #fdd663;
+}
+.label-Project {
+  top: 58%;
+  color: #ff8a65;
+}
+.label-Contact {
+  top: 73%;
+  color: #00ff00;
+}
 .imgBx:hover .label span {
   transform: translateX(0); /* Slide text in from right to left */
   font-weight: 700;

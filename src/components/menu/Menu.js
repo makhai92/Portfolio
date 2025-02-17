@@ -41,6 +41,7 @@ function Menu() {
     {
       id: 1,
       title: "Calorie_Bus",
+      url: "https://github.com/makhai92/Calorie_Bus",
       content: ["메인페이지", "뉴스게시판", "출첵게시판", "룰렛게시판"],
       description: [
         "Header: 메뉴에 마우스를 올리면 소메뉴 표시, 클릭 시 해당 게시판 이동. 상단 공지사항 기능 구현.<br /><br/>" +
@@ -97,6 +98,7 @@ function Menu() {
     {
       id: 2,
       title: "Spoon & Smiles",
+      url: "https://github.com/makhai92/SAS",
       content: [
         "메인페이지",
         "유저메인페이지",
@@ -194,6 +196,7 @@ function Menu() {
     {
       id: 3,
       title: "GooGoo RandingPage",
+      url: "https://github.com/makhai92/GooGoo-Landing",
       content: ["메인페이지"],
       description: [
         "메인페이지 메인페이지 구조 설계 - 메인페이지 영역 잡기/메인페이지 디자인 ",
@@ -214,7 +217,54 @@ function Menu() {
     },
     {
       id: 4,
+      title: "Portfolio2",
+      url: "https://main--yangsprotfolio2.netlify.app/",
+      content: ["Home", "About", "Skills", "Project", "Contact"],
+      description: [
+        "메인페이지설명",
+        "로그인설명",
+        "게시판설명",
+        "TODOLIST설명",
+        "관리자설정설명",
+      ],
+      images: [
+        {
+          src: "/img/Portfolio2logo.png",
+          i: 2,
+          j: 0,
+        },
+        {
+          src: "/img/Portfolio2.gif",
+          i: 1,
+          j: 0,
+        },
+        {
+          src: "/img/about.png",
+          i: 0,
+          j: 0,
+        },
+        {
+          src: "/img/skills.png",
+          i: -1,
+          j: 0,
+        },
+        {
+          src: "https://i.ibb.co/gm7Cv1d/pexels-ivan-samkov-6968810.jpg",
+          i: -2,
+          j: 0,
+        },
+        {
+          src: "https://i.ibb.co/gm7Cv1d/pexels-ivan-samkov-6968810.jpg",
+          i: -2,
+          j: 0,
+        },
+      ],
+      labels: ["Home", "About", "Skills", "Project", "Contact"],
+    },
+    {
+      id: 5,
       title: "Noble-제작중",
+      url: "https://github.com/makhai92",
       content: ["메인페이지", "로그인", "게시판", "TODOLIST", "관리자설정"],
       description: [
         "메인페이지설명",
@@ -266,7 +316,9 @@ function Menu() {
     },
     // 프로젝트가 더 추가될 수 있습니다.
   ];
-
+  const handleTitleClick = (url) => {
+    window.open(url, "_blank"); // 🔍 새 탭에서 열기
+  };
   // 폼 제출 함수
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -640,7 +692,18 @@ function Menu() {
                           className="my-augborder"
                         ></div>
                       </div>
-                      <h2 className="project-title">{project.title}</h2>
+                      <h2
+                        className="project-title"
+                        style={{
+                          cursor: "pointer",
+                          color: "#fff",
+                          textDecoration: "none",
+                        }}
+                        onClick={() => window.open(project.url, "_blank")}
+                      >
+                        {project.title}
+                      </h2>
+
                       <p className="project-content">
                         {Array.isArray(project.content)
                           ? project.content.map((item, itemIndex) => (
